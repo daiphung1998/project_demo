@@ -55,17 +55,21 @@ const productReducer = (state = initialState, action) => {
           item.countPay = item.countPay - 1
         }
       })
+      console.log(newArr);
       return state = [...newArr]
     }
 
     case ONCHANGE_NUMBER_INPUT_BY_CART: {
       const newArr = [...state]
 
+      console.log(action.payload);
       newArr.forEach(item => {
         if (item.id === action.payload.id) {
-            console.log(action.payload.value);
+          item.countPay = item.countPay + action.payload.numberCurrent
+          item.countPay = item.countPay - Number(action.payload.value)
         }
       })
+      console.log(newArr);
       return state = [...newArr]
     }
 

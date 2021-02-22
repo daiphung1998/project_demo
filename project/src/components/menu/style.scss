@@ -22,6 +22,9 @@ $Green: #80bb35;
   li:hover {
     background-color: $Orange
   }
+  .active {
+    background-color: $Orange;
+  }
   &__children {
     top: 99%;
     position: absolute;
@@ -33,9 +36,9 @@ $Green: #80bb35;
       width: 200px;
       &:hover {
         background-color: #ccc;
-        a {
-          color: $Orange;
-        }
+        // a {
+        //   color: $Orange;
+        // }
       }
     }
     a {

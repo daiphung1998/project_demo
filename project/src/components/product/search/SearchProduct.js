@@ -3,7 +3,21 @@ import './style.scss'
 
 const SearchProduct = (props) => {
   const countrys = ['canada', 'Hoa kỳ', 'Việt Nam', 'Úc']
-
+  const typeProduct = [
+    {
+      type: 'rau',
+      name: 'Rau',
+    },{
+      type: 'cu',
+      name: 'Củ',
+    },{
+      type: 'qua',
+      name: 'Quả',
+    },{
+      type: 'nam',
+      name: 'Nấm',
+    }
+  ]
   const prices = [
     {
       price1: '',
@@ -35,6 +49,24 @@ const SearchProduct = (props) => {
   }
   return (
     <div className="search">
+      <div className="box">
+        <div className="search__title">
+          <p>quốc gia</p>
+        </div>
+        <div className="search__content">
+          <ul>
+            {
+              typeProduct.map((item, index) => {
+                return (
+                  <li key={index}>
+                    {item.name}
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      </div>
       <div className= "box" >
         <div className="search__title">
           <p>GIÁ SẢN PHẨM</p>

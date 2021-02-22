@@ -17,8 +17,6 @@
       button {
         width: 75px;
         border: none;
-        // background-color: #80bb35;
-        // color: #fff;
         border-radius: 5px;
         font-weight: 500;
         height: 30px;
@@ -26,9 +24,6 @@
         &:nth-child(1) {
           margin-right: 5px;
         }
-        // &:hover {
-        //   background-color: #fe9705;
-        // }
       }
       &--seeMore {
         background-color: #80bb35;

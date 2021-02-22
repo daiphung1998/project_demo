@@ -76,6 +76,7 @@ const Cart = () => {
                 type="text" value={text}
                 id={record.id}
                 onChange={numberInput}
+                onClick={laygiatri}
               />
             <button
               className="cart__box-text--plus"
@@ -120,7 +121,6 @@ const Cart = () => {
       }
     },
   ];
-
   const onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     setSelectedRowKeys(selectedRowKeys);
@@ -131,9 +131,11 @@ const Cart = () => {
     onChange: onSelectChange,
   };
 
-
+  const laygiatri = (event) => {
+    setNumber(event.target.value)
+  }
   // const timeRef = useRef(null)
-  const [number, setNumber] = useState(0)
+  const [number, setNumber] = useState(1)
   const handleInput = useRef(number)
 
   useEffect(() => {
@@ -146,7 +148,6 @@ const Cart = () => {
 
   const numberInput = (event) => {
     const index = listProduct.findIndex(item => item.id === Number(event.target.id))
-
     let a = 0
     if ( event.target.value === "" || isNaN(event.target.value)) {
       setNumber(0)
