@@ -1,0 +1,118 @@
+$Orange: #fe9705;
+$Green: #80bb35;
+.navbar {
+  padding: 0px !important;
+}
+.list__menu {
+  width: 80%;
+  height: 51px;
+  text-align: center;
+  line-height: 35px;
+  margin: auto;
+  a {
+    color:#fff;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  li {
+    width: 130px;
+    position: relative;
+    transition: all 0.35s ease;
+  }
+  li:hover {
+    background-color: $Orange
+  }
+  &__children {
+    top: 99%;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 15px -5px rgba(0,0,0,0.4);
+    li {
+      width: 200px;
+      &:hover {
+        background-color: #ccc;
+        a {
+          color: $Orange;
+        }
+      }
+    }
+    a {
+      color: black;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+  li > ul {
+    display: none;
+  }
+  li:hover > ul{
+    display: block;
+    animation-duration: 0.5s;
+    z-index: 10;
+  }
+
+}
+
+@media only screen and (max-width: 739px) {
+  .navbar {
+    .navbar-toggler {
+      padding: 0px;
+      line-height: 35px;
+      border: 1px solid $Orange !important;
+      margin-top: 6px;
+      i {
+        padding-top: 0px;
+        font-size: 25px;
+        color: $Orange;
+        margin: 5px 10px;
+      }
+    }
+  }
+  .navbar-collapse {
+    background-color: $Green;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  .navbar {
+    .navbar-toggler {
+      padding: 0px;
+      line-height: 35px;
+      border: 1px solid $Orange !important;
+      margin-top: 6px;
+      i {
+        padding-top: 0px;
+        font-size: 25px;
+        color: $Orange;
+        margin: 5px 10px;
+      }
+    }
+    .navbar-collapse {
+      background-color: $Green;
+    }
+  }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+  .list__menu {
+    height: 102px;
+    .navbar {
+      .navbar-toggler {
+        padding: 0px;
+        line-height: 35px;
+        border: 1px solid $Orange !important;
+        margin-top: 6px;
+        i {
+          padding-top: 0px;
+          font-size: 25px;
+          color: $Orange;
+          margin: 5px 10px;
+        }
+      }
+    }
+    .navbar-collapse {
+      background-color: $Green;
+    }
+  }
+}

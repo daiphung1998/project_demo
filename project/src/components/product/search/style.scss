@@ -1,0 +1,32 @@
+.search {
+  .box {
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border-top: none;
+  }
+  &__title {
+    background-color: #80bb35;
+    border-radius: 10px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    margin-top: 10px;
+    font-weight: 500;
+    padding: 10px;
+    li {
+      margin: 5px 0px;
+      transition: all 0.2s ease;
+    }
+    li:hover {
+      color: #80bb35;
+    }
+  }
+}

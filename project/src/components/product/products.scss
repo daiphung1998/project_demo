@@ -1,0 +1,45 @@
+.products {
+  .sort {
+    text-align: right;
+  }
+  .item {
+    text-align: center;
+    margin-top: 20px;
+    img {
+      width: 90%;
+      height: 200px;
+      margin: auto;
+      margin-top: 15px;
+      transition: all 0.5s ease;
+    }
+    &:hover img {
+      transform: scale(1.1);
+    }
+    &__card {
+      border-radius: 10px;
+    }
+    button {
+      width: 75px;
+      border: none;
+      cursor: pointer;
+      background-color: #80bb35;
+      color: #fff;
+      border-radius: 5px;
+      height: 30px;
+      &:nth-child(1) {
+        margin-right: 5px;
+      }
+      &:hover {
+        background-color: #fe9705;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 739px) {
+
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+
+}
