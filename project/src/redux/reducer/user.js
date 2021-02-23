@@ -1,4 +1,5 @@
-import { GET_USERS,
+import {
+  // GET_USERS,
   ADD_CART,
   INCREMENT_PROJECT,
   DECREMENT_PROJECT,
@@ -13,7 +14,6 @@ const initialState = {
   user: {
     id: 1,
     name: 'dai',
-    id:1998,
     age: 22,
     cart: [
     ],
@@ -34,6 +34,9 @@ const useReducer  = (state = initialState, action) => {
     //     ...state,
     //     user: action.payload
     //   }
+    // gộp các mặt hàng khi chưa đăng nhập và sau khi đăng nhập có trước ở tài khoản
+    // lặp cart ko có user xem có chùng với sản phẩm nào trong tài khoản
+    // ko thì cộng 2 count lại còn không có thì thêm mới cart
 
     case ADD_CART: {
       let cartAction = user.cart

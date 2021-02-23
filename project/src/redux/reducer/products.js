@@ -87,7 +87,6 @@ const productReducer = (state = initialState, action) => {
     default:
       return state
   };
-  console.log("a");
 }
 
 export default productReducer

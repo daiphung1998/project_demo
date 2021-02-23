@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'antd/dist/antd.css'
 import Header from './components/header/Header'
 import './App.scss'
@@ -10,8 +10,11 @@ import {
   Route
 } from "react-router-dom"
 import router from './router'
-import { Provider } from 'react-redux'
-import store from './redux/store'
+import { useDispatch } from 'react-redux';
+import ProductApi from './api/productApi'
+import UserApi from './api/userApi'
+import {getProduct as getProductAction} from './redux/actions/products'
+import {getUser as getUserAction} from './redux/actions/userAction'
 
 const style = {
   height: 40,
@@ -24,36 +27,51 @@ const style = {
   fontSize: 14,
 };
 const App = () => {
+  const dispatch = useDispatch()
+  const fetchProducts = async () => {
+    try {
+      const listProduct = await ProductApi.getAll()
+      const user = await UserApi.getUser('')
+      dispatch(getProductAction(listProduct))
+      dispatch(getUserAction(user))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
   return (
-    <Provider store={store}>
-     <Router>
+    <>
+      <Router>
       <Header/>
-      <Row>
-        <Col span={24} className="menu">
-          <Menu/>
-        </Col>
-        <div className="content">
-          <Col span={24}>
-            <Switch>
-              {
-                router.map((item, index) => {
-                  const {Component} = item
-                  return (
-                    <Route path={item.path} exact={item.exact} key={index}>
-                      <Component type={item.type}/>
-                    </Route>
-                  )
-                })
-              }
-            </Switch>
+        <Row>
+          <Col span={24} className="menu">
+            <Menu/>
           </Col>
-        </div>
-      </Row>
-     </Router>
-     <BackTop >
-      <div style={style}><i className="fas fa-arrow-up"></i></div>
-    </BackTop>
-    </Provider>
+          <div className="content">
+            <Col span={24}>
+              <Switch>
+                {
+                  router.map((item, index) => {
+                    const {Component} = item
+                    return (
+                      <Route path={item.path} exact={item.exact} key={index}>
+                        <Component type={item.type}/>
+                      </Route>
+                    )
+                  })
+                }
+              </Switch>
+            </Col>
+          </div>
+        </Row>
+      </Router>
+      <BackTop >
+        <div style={style}><i className="fas fa-arrow-up"></i></div>
+      </BackTop>
+    </>
   );
 }
 
