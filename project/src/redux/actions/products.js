@@ -4,7 +4,8 @@ import {
   DECREMENT_COUNT_PAY_PROFILE,
   DECREMENT_COUNT_PAY_BY_CART,
   INCREMENT_COUNT_PAY_BY_CART,
-  ONCHANGE_NUMBER_INPUT_BY_CART
+  ONCHANGE_NUMBER_INPUT_BY_CART,
+  SET_EVALUATE
 } from '../actionType'
 
 export const getProduct = (payload) => {
@@ -48,3 +49,11 @@ export const onchangeInputPayByCart = (payload) => {
     payload
   }
 }
+
+export const setEvaluate = (payload) => {
+  return {
+    type: SET_EVALUATE,
+    payload
+  }
+}
+

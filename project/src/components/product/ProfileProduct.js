@@ -4,15 +4,27 @@ import { useParams } from 'react-router-dom'
 import productApi from '../../api/productApi'
 import './ProfileProduct.scss'
 import {addCartByProfile as addCartByProfileAction} from '../../redux/actions/userAction'
-import { decrementCountPayProfile } from "./../../redux/actions/products";
+import {
+  decrementCountPayProfile,
+  setEvaluate as setEvaluateAction
+} from "./../../redux/actions/products";
+import { Tabs, Rate, Modal, Button } from 'antd';
+
+const { TabPane } = Tabs;
 
 const ProfileProduct = () => {
   const param = useParams()
+
+  const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
   const dispatch = useDispatch()
 
   const [product, setProduct] = useState(null)
   const [number, setNumber] = useState(1)
+
+  const [evaluate, setEvaluate] = useState(0)
+  const[evaluateDefault, setEvaluateDefault] = useState(0)
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const fetchProduct = async () => {
     try {
@@ -61,6 +73,38 @@ const ProfileProduct = () => {
     dispatch(decrementCountPayProfile(data))
     setNumber(1)
   }
+  const handleChange = (evaluate) => {
+    setEvaluate(evaluate)
+  }
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    const value = {
+      id: product[0].id,
+      evaluate
+    }
+    dispatch(setEvaluateAction(value))
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const getValueEvaluate = (key) => {
+    let count = 0
+    if (key === "3") {
+      product[0].evaluates.forEach((item, index) => {
+        count = count + item.point
+      });
+      const s = count / product[0].evaluates.length
+      setEvaluateDefault(s)
+    }
+  }
+
   return (
     <>
       {
@@ -109,6 +153,58 @@ const ProfileProduct = () => {
               </div>
             </div>
           </div>
+          <Tabs defaultActiveKey="1" type="card" onChange={getValueEvaluate}>
+            <TabPane tab="Mô tả" key="1">
+              Content of card tab 1
+            </TabPane>
+            <TabPane tab="Thông tin" key="2">
+              Content of card tab 2
+            </TabPane>
+            <TabPane tab="Đánh giá" key="3">
+              <h3>Đánh giá sản phẩm</h3>
+              <span>
+                <Rate
+                  allowHalf
+                  disabled
+                  tooltips={desc}
+                  onChange={handleChange}
+                  value={evaluateDefault}
+                />
+                {
+                  evaluateDefault ?
+                  <span className="ant-rate-text">{desc[evaluateDefault - 1]}</span>
+                  : ''
+                }
+              </span>
+              <span className="evaluate"><button onClick={showModal}>Đánh giá sản phẩm</button></span>
+              <div>
+              <Modal
+                visible={isModalVisible}
+                title="Đánh giá sản phẩm"
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={[
+                  <Button key="back" onClick={handleCancel}>
+                    Cancel
+                  </Button>,
+                  <Button key="submit" type="primary"  onClick={handleOk}>
+                    Gửi đánh giá
+                  </Button>,
+                ]}
+              >
+                <span>Đánh giá của bạn về sản phẩm: </span>
+                <Rate
+                    allowHalf
+                    onChange={handleChange}
+                    value={evaluate}
+                  />
+              </Modal>
+              </div>
+            </TabPane>
+            <TabPane tab="Bình luận" key="4">
+              Content of card tab 2
+            </TabPane>
+          </Tabs>
         </div>
       }
     </>

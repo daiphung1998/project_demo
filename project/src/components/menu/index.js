@@ -2,6 +2,8 @@ import React from 'react'
 import './style.scss'
 import MenuItem from './MenuItem'
 import Search from './search/Search'
+import { Affix } from 'antd';
+
 
 const myMenu = () => {
   const menu = [
@@ -79,23 +81,27 @@ const myMenu = () => {
     }
   ]
   return (
-    <div className="list__menu">
-      <div className="row">
-        <div className="col-6 col-sm-6 col-xl-10">
-        <nav className="navbar navbar-expand-lg navbar-light ">
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i className="fas fa-bars"></i>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="nav">
-              <MenuItem dataChildren={menu} />
-            </ul>
+    <>
+      <Affix offsetTop={0}>
+        <div className="list__menu">
+          <div className="row">
+            <div className="col-6 col-sm-6 col-xl-10">
+              <nav className="navbar navbar-expand-lg navbar-light ">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <i className="fas fa-bars"></i>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="nav">
+                    <MenuItem dataChildren={menu} />
+                  </ul>
+                </div>
+              </nav>
+              </div>
+            <div className="col-6 col-sm-6 col-xl-2"> <Search/> </div>
           </div>
-        </nav>
         </div>
-        <div className="col-6 col-sm-6 col-xl-2"> <Search/> </div>
-      </div>
-    </div>
+      </Affix>
+    </>
   )
 }
 

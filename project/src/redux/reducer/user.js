@@ -11,6 +11,7 @@ import { GET_USERS,
 
 const initialState = {
   user: {
+    id: 1,
     name: 'dai',
     id:1998,
     age: 22,

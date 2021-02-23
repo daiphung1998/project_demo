@@ -56,7 +56,6 @@
         background-color: #fff;
         top: 1px;
         right: 16px;
-        z-index: 10;
         width: 20px;
         height: 96%;
         transition: all 0.25s ease;
@@ -71,7 +70,6 @@
         background-color: #fff;
         top: 1px;
         left: 16px;
-        z-index: 10;
         width: 20px;
         height: 96%;
         transition: all 0.25s ease;
@@ -98,4 +96,45 @@
       font-weight: 600;
     }
   }
+}
+.evaluate {
+  button {
+    margin-left: 310px;
+    background-color: #80bb35;
+    border: 1px solid #80bb35;
+    border-radius: 5px;
+    padding: 5px 10px ;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+// .evaluateSubmit {
+//   button {
+//     margin-left: 310px;
+//     background-color: #fe9705;
+//     border: 1px solid #fe9705;
+//     border-radius: 5px;
+//     padding: 5px 10px ;
+//     color: #fff;
+//     font-weight: 600;
+//     font-size: 16px;
+//   }
+// }
+
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
+  background-color: #fe9705 !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+}
+.ant-tabs-tabpane {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px 10px;
+  background-color: #fff;
+}
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
+  background-color: #80bb35;
+  color: #fff ;
 }
