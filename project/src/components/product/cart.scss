@@ -38,4 +38,17 @@
       float: right;
     }
   }
+
+}
+.ant-modal-footer {
+  display: none;
+}
+.btnSubmit {
+  padding: 5px 30px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 75px;
+}
+.ant-form-item-control-input-content {
+  display: flex;
 }

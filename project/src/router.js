@@ -22,7 +22,7 @@ const router = [
   {path: '/mushroom', exact: true,type:'nam', Component: Products},
   {path: '/fruit', exact: true,type:'qua', Component: Products},
   {path: '/cart', exact: true, Component: Cart},
-  {path: '/product/:id', exact: true, Component: Product},
+  {path: '/products/:id', exact: true, Component: Product},
   {path: '/products', exact: true, type: '', Component: Products},
   {path: '/searchProducts', exact: true, type: '', Component: searchProduct},
   {path: '', exact: true, Component: NotFound}

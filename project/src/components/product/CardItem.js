@@ -28,8 +28,8 @@ const CardItem = ({item}) => {
         cover={<img alt="example" src={item.img}/>}
       >
         <p>{item.name}</p>
-        <h2>{item.price}</h2>
-        <Link to={`/product/${item.id}`}>
+        <h3>{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</h3>
+        <Link to={`/products/${item.id}`}>
           <button className="item__card--seeMore">Xem thêm</button>
         </Link>
         <Link to={`#`}>

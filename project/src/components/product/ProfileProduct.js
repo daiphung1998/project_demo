@@ -8,9 +8,16 @@ import {
   decrementCountPayProfile,
   setEvaluate as setEvaluateAction
 } from "./../../redux/actions/products";
-import { Tabs, Rate, Modal, Button } from 'antd';
+import { Tabs, Rate, Modal, Button, notification } from 'antd';
 
 const { TabPane } = Tabs;
+const openNotification = (item) => {
+  notification.open({
+    message: '',
+    description:`Bạn đã thêm thành công một sản phẩm ${item.name} vào giỏ hàng`,
+    icon: <i className="fad fa-alicorn" style={{fontSize: "40px", color: 'pink'}}></i>,
+  });
+};
 
 const ProfileProduct = () => {
   const param = useParams()
@@ -24,7 +31,7 @@ const ProfileProduct = () => {
 
   const [evaluate, setEvaluate] = useState(0)
   const[evaluateDefault, setEvaluateDefault] = useState(0)
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   const fetchProduct = async () => {
     try {
@@ -72,6 +79,7 @@ const ProfileProduct = () => {
     dispatch(addCartByProfileAction(data))
     dispatch(decrementCountPayProfile(data))
     setNumber(1)
+    openNotification(product[0])
   }
   const handleChange = (evaluate) => {
     setEvaluate(evaluate)
@@ -135,7 +143,7 @@ const ProfileProduct = () => {
                       <span className="status--OutOfStock"> <i className="fas fa-times"></i> Hết hàng</span>
                     )}
                     </p>
-                  <h2 className="price">{product[0].price} VND</h2>
+                  <h2 className="price">{product[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</h2>
                   <div className="nutrition">
                     giá trị dinh dưỡng
                   </div>
@@ -147,6 +155,7 @@ const ProfileProduct = () => {
                       <button className="plus" onClick={increment}>+</button>
                     </div>
                     <button className={product[0].countPay > 0 ? "buy" : "disabledBuy"} onClick={buyProduct} disabled = {product[0].countPay > 0 ? false : true}>Mua hàng</button>
+
                   </div>
                   <p>Địa chỉ: <span>aaaaa</span></p>
                 </div>

@@ -7,12 +7,14 @@ import {
   NUMBER_INPUT,
   DELETE_LIST_ITEM_CART,
   PAY_CART,
-  ADD_CART_BY_PROFILE
+  ADD_CART_BY_PROFILE,
+  DECREMENT_COUNT_PAY_BY_CART,
+  PAY_CART_NO_USER
 } from '../actionType'
 
 const initialState = {
   user: {
-    id: 1,
+    // id: 1,
     name: 'dai',
     age: 22,
     cart: [
@@ -136,7 +138,6 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case NUMBER_INPUT: {
-      console.log(action.payload);
       if(isNaN(action.payload.value)|| action.payload.value < 0) {
         const index = cart.findIndex(item => item.id === action.payload.id)
           if (index !== -1) {
@@ -181,18 +182,43 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case PAY_CART: {
-      // let count = 0
-      // action.payload.forEach(item => {
-      //   if (count === 0 ) {
-      //     oder.push(cart[item-1])
-      //   } else {
-      //     oder.push(cart[item-1])
-      //     count = count + 1
-      //   }
-      //   console.log(item);
-      // });
       action.payload.forEach(item => {
-        oder.push(item)
+        cart.forEach(elem => {
+          if (item === elem.id && elem.count !== 0) {
+            oder.push(elem)
+          }
+        })
+      })
+      return {
+        ...state,
+        user: user
+      }
+    }
+
+    case PAY_CART_NO_USER: {
+      console.log(action.payload);
+      action.payload.listId.forEach(item => {
+        cart.forEach(elem => {
+          if (item === elem.id && elem.count !== 0) {
+            oder.push(elem)
+          }
+        })
+      })
+      user.profile = action.payload.profile
+      return {
+        ...state,
+        user: user
+      }
+    }
+
+    case DECREMENT_COUNT_PAY_BY_CART: {
+      action.payload.forEach(item => {
+        cart.forEach(elem => {
+          if (item === elem.id && elem.count !== 0) {
+            user.cart = user.cart.filter(i => i.id !== item)
+
+          }
+        })
       })
       return {
         ...state,

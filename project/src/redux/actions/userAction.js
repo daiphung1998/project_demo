@@ -6,7 +6,9 @@ import { GET_USERS,
   NUMBER_INPUT,
   DELETE_LIST_ITEM_CART,
   PAY_CART,
-  ADD_CART_BY_PROFILE
+  ADD_CART_BY_PROFILE,
+  DECREMENT_COUNT_PAY_BY_CART,
+  PAY_CART_NO_USER
 } from '../actionType';
 
 export const getUser = (payload) => {
@@ -68,6 +70,20 @@ export const payCart = (payload) => {
 export const addCartByProfile = (payload) => {
   return {
     type: ADD_CART_BY_PROFILE,
+    payload
+  }
+}
+
+export const deleteItemPayCart = (payload) => {
+  return {
+    type: DECREMENT_COUNT_PAY_BY_CART,
+    payload
+  }
+}
+
+export const payCartNoUser = (payload) => {
+  return {
+    type: PAY_CART_NO_USER,
     payload
   }
 }
