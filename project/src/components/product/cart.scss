@@ -12,7 +12,7 @@
   &__box-count {
     width: 82px;
     text-align: center;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     button {
       background-color: #fff;
       width: 20px;
@@ -51,4 +51,10 @@
 }
 .ant-form-item-control-input-content {
   display: flex;
+}
+.ant-notification {
+  margin-top: 50px;
+}
+.ant-notification-notice {
+  background-color: #ccc;
 }

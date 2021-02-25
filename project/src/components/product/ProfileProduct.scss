@@ -109,18 +109,6 @@
     font-size: 16px;
   }
 }
-// .evaluateSubmit {
-//   button {
-//     margin-left: 310px;
-//     background-color: #fe9705;
-//     border: 1px solid #fe9705;
-//     border-radius: 5px;
-//     padding: 5px 10px ;
-//     color: #fff;
-//     font-weight: 600;
-//     font-size: 16px;
-//   }
-// }
 
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
   background-color: #fe9705 !important;
@@ -137,4 +125,10 @@
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
   background-color: #80bb35;
   color: #fff ;
+}
+.ant-notification {
+  margin-top: 50px;
+}
+.ant-notification-notice {
+  background-color: #ccc;
 }

@@ -9,7 +9,7 @@ const openNotification = (item) => {
   notification.open({
     message: '',
     description:`Bạn đã thêm thành công một sản phẩm ${item.name} vào giỏ hàng`,
-    icon: <i className="fad fa-alicorn" style={{fontSize: "40px", color: 'pink'}}></i>,
+    icon: <i className="fad fa-alicorn" style={{fontSize: "40px", color: '#fe9705'}}></i>,
   });
 };
 
