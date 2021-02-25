@@ -83,8 +83,8 @@ const Cart = () => {
               <input
                 type="text" value={text}
                 id={record.id}
-                onChange={numberInput}
-                onClick={laygiatri}
+                onChange={getNumberInput}
+                onClick={getValue}
               />
             <button
               className="cart__box-text--plus"
@@ -139,7 +139,7 @@ const Cart = () => {
     onChange: onSelectChange,
   };
 
-  const laygiatri = (event) => {
+  const getValue = (event) => {
     setNumber(event.target.value)
   }
 
@@ -151,7 +151,7 @@ const Cart = () => {
     }
   },[number])
 
-  const numberInput = (event) => {
+  const getNumberInput = (event) => {
     const index = listProduct.findIndex(item => item.id === Number(event.target.id))
     let a = 0
     if ( event.target.value === "" || isNaN(event.target.value)) {

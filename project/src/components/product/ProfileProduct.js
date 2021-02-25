@@ -64,7 +64,7 @@ const ProfileProduct = () => {
     }
   }
 
-  const numberInput = e => {
+  const getNumberInput = e => {
     const value = e.target.value
     if (value > product[0].countPay) {
       setNumber(product[0].countPay)
@@ -152,7 +152,7 @@ const ProfileProduct = () => {
                     <label>Số lượng: </label>
                     <div className="addNumber">
                       <button className="minus" onClick={decrement}>-</button>
-                      <input type="text" value={number} onChange={numberInput} />
+                      <input type="text" value={number} onChange={getNumberInput} />
                       <button className="plus" onClick={increment}>+</button>
                     </div>
                     <button className={product[0].countPay > 0 ? "buy" : "disabledBuy"} onClick={buyProduct} disabled = {product[0].countPay > 0 ? false : true}>Mua hàng</button>
