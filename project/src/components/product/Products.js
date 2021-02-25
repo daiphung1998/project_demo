@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 const Products = ({type}) => {
   const [products, setProducts] = useState([])
   const [listSort, setListSort] = useState([])
-
   const fetchProducts = async () => {
     const params = {
       type: ''
