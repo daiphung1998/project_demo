@@ -1,0 +1,201 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Hành",
+      "price": 50000,
+      "countPay": 0,
+      "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/hanh-kho.jpg?v=1539588166193",
+      "type": "cu",
+      "species": "kho",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 2,
+          "point": 5
+        },
+        {
+          "id": 1,
+          "point": 4
+        },
+        {
+          "id": 5,
+          "point": 4.5
+        },
+        {
+          "id": 3,
+          "point": 3
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 2,
+      "name": "Nấm hương khô",
+      "countPay": 100,
+      "price": 25000,
+      "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
+      "type": "nam",
+      "species": "kho",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 3,
+          "point": 4
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 3,
+      "name": "Nấm đùi gà",
+      "countPay": 100,
+      "price": 150000,
+      "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
+      "type": "nam",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 4,
+          "point": 3
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 4,
+      "name": "Khoai Lang",
+      "countPay": 0,
+      "price": 250000,
+      "img": "https://sieuthiandam.com/wp-content/uploads/2018/03/0001895-khoai-lang-600x600-600x600.jpg",
+      "type": "cu",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 1,
+          "point": 4
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 5,
+      "name": "Hành lá",
+      "countPay": 100,
+      "price": 50000,
+      "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+      "type": "rau",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 1,
+          "point": 4
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 6,
+      "name": "Táo xanh Mỹ",
+      "price": 50000,
+      "countPay": 100,
+      "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+      "type": "qua",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 1,
+          "point": 4
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 7,
+      "name": "Táo đỏ Mỹ",
+      "price": 115000,
+      "countPay": 100,
+      "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+      "type": "qua",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 1,
+          "point": 1
+        }
+      ],
+      "country": "viet Nam"
+    },
+    {
+      "id": 8,
+      "name": "Táo đỏ Mỹ",
+      "price": 125000,
+      "countPay": 100,
+      "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+      "type": "qua",
+      "species": "tuoi",
+      "comments": {},
+      "evaluates": [
+        {
+          "id": 1,
+          "point": 4
+        }
+      ],
+      "country": "viet Nam"
+    }
+  ],
+  "slide": [
+    {
+      "id": "1",
+      "img": "https://chupanhvn.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2016/01/25030855/thuc-pham-tuoi-song3-1.jpg"
+    },
+    {
+      "id": "2",
+      "img": "https://detoxgreen.vn/wp-content/uploads/2016/08/1-11.jpg"
+    },
+    {
+      "id": "3",
+      "img": "https://chupanhvn.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2016/01/25030550/thuc-pham-tuoi-song.jpg"
+    },
+    {
+      "id": "4",
+      "img": "https://i.pinimg.com/originals/2f/94/76/2f9476b754a398f10b5c6602d4625170.png"
+    },
+    {
+      "id": "5",
+      "img": "https://nauco-tainha.com/wp-content/uploads/2018/10/thuc-pham-an-toan.jpg"
+    },
+    {
+      "id": "6",
+      "img": "https://cdn.s3-hcm-r1.longvan.net/upload/cddsg/images/phu-gia-thuc-pham.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "name 1",
+      "password": "password 1",
+      "cart": [],
+      "oder": [],
+      "userName": "userName 1",
+      "gender": "gender 1"
+    },
+    {
+      "id": "2",
+      "name": "name 2",
+      "password": "password 2",
+      "cart": [],
+      "oder": [],
+      "userName": "userName 2",
+      "gender": "gender 2",
+      "email": "daiphung.hd@gmail.com",
+      "address": "18T1 theGolden An khánh, Hoài đức, Hà Nội",
+      "phone": "0963310336"
+    }
+  ]
+}

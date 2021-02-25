@@ -51,7 +51,7 @@ const SearchProduct = (props) => {
     <div className="search">
       <div className="box">
         <div className="search__title">
-          <p>quốc gia</p>
+          <p>Loại sản phẩm</p>
         </div>
         <div className="search__content">
           <ul>

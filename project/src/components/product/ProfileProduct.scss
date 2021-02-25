@@ -110,6 +110,24 @@
   }
 }
 
+.evaluateDisable {
+  button {
+    margin-left: 310px;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px ;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  span {
+    display: inline-block;
+    text-align: center;
+    margin-left: 80px;
+  }
+}
+
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
   background-color: #fe9705 !important;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import productApi from '../../api/productApi'
 import './ProfileProduct.scss'
@@ -21,6 +21,8 @@ const openNotification = (item) => {
 
 const ProfileProduct = () => {
   const param = useParams()
+
+  const user = useSelector(store => store.userReducer.user)
 
   const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
@@ -112,7 +114,6 @@ const ProfileProduct = () => {
       setEvaluateDefault(s)
     }
   }
-
   return (
     <>
       {
@@ -164,11 +165,13 @@ const ProfileProduct = () => {
           </div>
           <Tabs defaultActiveKey="1" type="card" onChange={getValueEvaluate}>
             <TabPane tab="Mô tả" key="1">
-              Content of card tab 1
+              mô tả sản phẩm
             </TabPane>
+
             <TabPane tab="Thông tin" key="2">
-              Content of card tab 2
+              thông tin sản phẩm
             </TabPane>
+
             <TabPane tab="Đánh giá" key="3">
               <h3>Đánh giá sản phẩm</h3>
               <span>
@@ -185,7 +188,11 @@ const ProfileProduct = () => {
                   : ''
                 }
               </span>
-              <span className="evaluate"><button onClick={showModal}>Đánh giá sản phẩm</button></span>
+              <span className={user.id === undefined ? "evaluateDisable" :  "evaluate" }>
+
+                <button onClick={showModal} disabled={user.id === undefined ? true : false}>Đánh giá sản phẩm</button>
+                <span style={{display: user.id === undefined ? 'block' : 'none'}}>( Đằng nhập để gửi đánh giá của bạn )</span>
+              </span>
               <div>
               <Modal
                 visible={isModalVisible}
@@ -210,8 +217,9 @@ const ProfileProduct = () => {
               </Modal>
               </div>
             </TabPane>
+
             <TabPane tab="Bình luận" key="4">
-              Content of card tab 2
+              bình luận
             </TabPane>
           </Tabs>
         </div>
