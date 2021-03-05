@@ -14,7 +14,7 @@ import {
 
 const initialState = {
   user: {
-    // id: 1,
+    id: 1,
     name: 'dai',
     age: 22,
     cart: [
@@ -149,6 +149,7 @@ const useReducer  = (state = initialState, action) => {
         }
       } else {
         const index = cart.findIndex(item => item.id === action.payload.id)
+        console.log(Number(action.payload.value), cart[index].countPay);
           if (index !== -1) {
             if (Number(action.payload.value) > cart[index].countPay) {
               cart[index].count = cart[index].countPay

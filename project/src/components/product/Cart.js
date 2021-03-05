@@ -98,7 +98,7 @@ const Cart = () => {
     {
       title: 'ĐVT',
       dataIndex: 'dvt',
-      render: (text, record) => {
+      render: text => {
         return (
           <div>
             {text}

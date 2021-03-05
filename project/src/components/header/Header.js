@@ -11,7 +11,7 @@ const Header = () => {
       <div className="header__content">
         <Row>
           <Col span={5} offset={1} className="login">
-            <Link to='#'>Đăng Nhập</Link>
+            <Link to='/login'>Đăng Nhập</Link>
           </Col>
           <Col span={12} className="logo">
             <p>Logo</p>

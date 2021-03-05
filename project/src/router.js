@@ -4,7 +4,8 @@ import Cart from './components/product/Cart'
 import Product from './components/product/ProfileProduct'
 import Products from './components/product/Products'
 import searchProduct from './components/menu/search/SearchProductByName'
-
+import Login from './components/login/index'
+import SingUp from './components/signUp/index'
 // const AuthLogin = Component => {
 //   const [isOk, setIsOk] = useState(true)
 //   return (
@@ -25,6 +26,8 @@ const router = [
   {path: '/products/:id', exact: true, Component: Product},
   {path: '/products', exact: true, type: '', Component: Products},
   {path: '/searchProducts', exact: true, type: '', Component: searchProduct},
+  {path: '/login', exact: true, type: '', Component: Login},
+  {path: '/singup', exact: true, type: '', Component: SingUp},
   {path: '', exact: true, Component: NotFound}
 ]
 
