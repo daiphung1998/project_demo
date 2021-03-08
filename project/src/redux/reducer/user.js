@@ -63,6 +63,7 @@ const useReducer  = (state = initialState, action) => {
             name: action.payload.name,
             img: action.payload.img,
             price: action.payload.price,
+            countPay: action.payload.countPay,
             count: 1,
           }
           cartAction.push(newData)
@@ -107,9 +108,10 @@ const useReducer  = (state = initialState, action) => {
 
     case INCREMENT_PROJECT:{
       const index = cart.findIndex(item => item.id === action.payload)
+      console.log(cart[index]);
         if (index !== -1) {
-          if (cart[index].count  + 1 > cart[index].countPay) {
-            cart[index].count = cart[index].countPay + 1
+          if (cart[index].count >= cart[index].countPay) {
+            cart[index].count = cart[index].countPay
           } else {
             cart[index].count = cart[index].count  + 1
           }
@@ -149,7 +151,6 @@ const useReducer  = (state = initialState, action) => {
         }
       } else {
         const index = cart.findIndex(item => item.id === action.payload.id)
-        console.log(Number(action.payload.value), cart[index].countPay);
           if (index !== -1) {
             if (Number(action.payload.value) > cart[index].countPay) {
               cart[index].count = cart[index].countPay

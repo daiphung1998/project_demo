@@ -79,7 +79,7 @@ const ProfileProduct = () => {
       number: number
     }
     dispatch(addCartByProfileAction(data))
-    dispatch(decrementCountPayProfile(data))
+    // dispatch(decrementCountPayProfile(data))
     setNumber(1)
     openNotification(product[0])
   }

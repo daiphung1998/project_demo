@@ -17,7 +17,7 @@ const CardItem = ({item}) => {
   const dispatch = useDispatch()
   const addToCart = () => {
     dispatch(addCartAction(item))
-    dispatch(decrementCountPayAction(item))
+    // dispatch(decrementCountPayAction(item))
     openNotification(item)
   }
   return (

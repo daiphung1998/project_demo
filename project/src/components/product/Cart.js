@@ -84,7 +84,7 @@ const Cart = () => {
                 type="text" value={text}
                 id={record.id}
                 onChange={getNumberInput}
-                onClick={getValue}
+                // onClick={getValue}
               />
             <button
               className="cart__box-text--plus"
@@ -130,7 +130,7 @@ const Cart = () => {
     },
   ];
   const onSelectChange = selectedRowKeys => {
-    console.log('selectedRowKeys changed: ', selectedRowKeys);
+    // console.log('selectedRowKeys changed: ', selectedRowKeys);
     setSelectedRowKeys(selectedRowKeys);
   };
 
@@ -139,17 +139,17 @@ const Cart = () => {
     onChange: onSelectChange,
   };
 
-  const getValue = (event) => {
-    setNumber(event.target.value)
-  }
+  // const getValue = (event) => {
+  //   setNumber(event.target.value)
+  // }
 
-  useEffect(() => {
-    if ( handleInput.current === "") {
-      handleInput.current = 0
-    }else {
-      handleInput.current = number
-    }
-  },[number])
+  // useEffect(() => {
+  //   if ( handleInput.current === "") {
+  //     handleInput.current = 0
+  //   } else {
+  //     handleInput.current = number
+  //   }
+  // },[number])
 
   const getNumberInput = (event) => {
     const index = listProduct.findIndex(item => item.id === Number(event.target.id))
@@ -170,17 +170,17 @@ const Cart = () => {
       id: Number(event.target.id)
     }
     dispatch(numberInputProjectAction(newNumber))
-    dispatch(onchangeInputPayByCartAction(newNumber))
+    // dispatch(onchangeInputPayByCartAction(newNumber))
   }
 
   const increment = (id) => {
     dispatch(incrementProjectAction(id))
-    dispatch(incrementCountPayByCartAction(id))
+    // dispatch(incrementCountPayByCartAction(id))
   }
 
   const decrement = (id) => {
     dispatch(decrementProjectAction(id))
-    dispatch(decrementCountPayByCartAction(id))
+    // dispatch(decrementCountPayByCartAction(id))
   }
 
   const deleteItem = (id) => {
@@ -222,7 +222,7 @@ const Cart = () => {
   const onFinishFailed = errorInfo => {
   };
 
-  const showModal = () => {
+  const PayCart = () => {
     if (user.id) {
       const newArr = []
       selectedRowKeys.forEach(item => {
@@ -272,7 +272,7 @@ const Cart = () => {
         <Button
           className="cart__button--pay"
           type="primary"
-          onClick={showModal}
+          onClick={PayCart}
           disabled={!hasSelected}
           loading={loading}
           >
