@@ -180,7 +180,7 @@ const ProfileProduct = () => {
                   allowHalf
                   disabled
                   tooltips={desc}
-                  // onChange={handleChange}
+                  onChange={handleChange}
                   value={evaluateDefault}
                 />
                 {
@@ -194,28 +194,37 @@ const ProfileProduct = () => {
                 <button onClick={showModal} disabled={user.id === undefined ? true : false}>Đánh giá sản phẩm</button>
                 <span style={{display: user.id === undefined ? 'block' : 'none'}}>( Đằng nhập để gửi đánh giá của bạn )</span>
               </span>
-              <div>
-              <Modal
-                visible={isModalVisible}
-                title="Đánh giá sản phẩm"
-                onOk={handleOk}
-                onCancel={handleCancel}
-                // footer={[
-                //   <Button key="back" onClick={handleCancel}>
-                //     Cancel
-                //   </Button>,
-                //   <Button key="submit" type="primary" onClick={handleOk}>
-                //     Gửi đánh giá
-                //   </Button>,
-                // ]}
-              >
-                <span>Đánh giá của bạn về sản phẩm: </span>
-                <Rate
-                    allowHalf
-                    onChange={handleChange}
-                    value={evaluate}
-                  />
-              </Modal>
+              <div className="fromEvaluate">
+                <Modal
+                  visible={isModalVisible}
+                  title="Đánh giá sản phẩm"
+                  style = {{marginTop: "150px"}}
+                  // onOk={handleOk}
+                  // onCancel={handleCancel}
+                  // footer={[
+                  //   <Button key="back" onClick={handleCancel}>
+                  //     Cancel
+                  //   </Button>,
+                  //   <Button key="submit" type="primary" onClick={handleOk}>
+                  //     Gửi đánh giá
+                  //   </Button>,
+                  // ]}
+                >
+                  <span>Đánh giá của bạn về sản phẩm: </span>
+                  <Rate
+                      allowHalf
+                      onChange={handleChange}
+                      value={evaluate}
+                    />
+                  <div className="fromEvaluate__btn">
+                    <Button key="cancel" danger  onClick={handleCancel}>
+                      Cancel
+                    </Button>,
+                    <Button key="submit" type="primary" onClick={handleOk}>
+                      Gửi đánh giá
+                    </Button>
+                  </div>
+                </Modal>
               </div>
             </TabPane>
 

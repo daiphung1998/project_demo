@@ -284,8 +284,8 @@ const Cart = () => {
           <Modal
             visible={visible}
             title="Điền thông tin"
-            onOk={handleOk}
-            onCancel={handleCancel}
+            // onOk={handleOk}
+            // onCancel={handleCancel}
           >
             <Form
               name="basic"

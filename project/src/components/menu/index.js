@@ -25,11 +25,11 @@ const myMenu = () => {
           children: [
             {
               title: 'Quả tươi',
-              path: '/'
+              path: '/t'
             },
             {
               title: 'Quả khô',
-              path: '/'
+              path: '/k'
             }
           ]
         },
@@ -39,11 +39,11 @@ const myMenu = () => {
           children: [
             {
               title: 'Quả tươi',
-              path: '/'
+              path: '/t'
             },
             {
               title: 'Quả khô',
-              path: '/'
+              path: '/k'
             }
           ]
         },
@@ -53,11 +53,11 @@ const myMenu = () => {
           children: [
             {
               title: 'Quả tươi',
-              path: '/'
+              path: '/t'
             },
             {
               title: 'Quả khô',
-              path: '/'
+              path: '/k'
             }
           ]
         },
