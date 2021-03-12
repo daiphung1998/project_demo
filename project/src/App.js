@@ -41,6 +41,7 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>

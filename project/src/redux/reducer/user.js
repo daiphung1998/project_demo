@@ -74,6 +74,7 @@ const useReducer  = (state = initialState, action) => {
         }
       }
     }
+    /* falls through */
 
     case ADD_CART_BY_PROFILE: {
       let cartAction = user.cart
@@ -108,7 +109,6 @@ const useReducer  = (state = initialState, action) => {
 
     case INCREMENT_PROJECT:{
       const index = cart.findIndex(item => item.id === action.payload)
-      console.log(cart[index]);
         if (index !== -1) {
           if (cart[index].count >= cart[index].countPay) {
             cart[index].count = cart[index].countPay

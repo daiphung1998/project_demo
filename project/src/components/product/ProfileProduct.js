@@ -5,7 +5,7 @@ import productApi from '../../api/productApi'
 import './ProfileProduct.scss'
 import {addCartByProfile as addCartByProfileAction} from '../../redux/actions/userAction'
 import {
-  decrementCountPayProfile,
+  // decrementCountPayProfile,
   setEvaluate as setEvaluateAction
 } from "./../../redux/actions/products";
 import { Tabs, Rate, Modal, Button, notification } from 'antd';
@@ -46,6 +46,7 @@ const ProfileProduct = () => {
 
   useEffect(() => {
     fetchProduct()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const increment = () => {
@@ -179,7 +180,7 @@ const ProfileProduct = () => {
                   allowHalf
                   disabled
                   tooltips={desc}
-                  onChange={handleChange}
+                  // onChange={handleChange}
                   value={evaluateDefault}
                 />
                 {
@@ -199,14 +200,14 @@ const ProfileProduct = () => {
                 title="Đánh giá sản phẩm"
                 onOk={handleOk}
                 onCancel={handleCancel}
-                footer={[
-                  <Button key="back" onClick={handleCancel}>
-                    Cancel
-                  </Button>,
-                  <Button key="submit" type="primary"  onClick={handleOk}>
-                    Gửi đánh giá
-                  </Button>,
-                ]}
+                // footer={[
+                //   <Button key="back" onClick={handleCancel}>
+                //     Cancel
+                //   </Button>,
+                //   <Button key="submit" type="primary" onClick={handleOk}>
+                //     Gửi đánh giá
+                //   </Button>,
+                // ]}
               >
                 <span>Đánh giá của bạn về sản phẩm: </span>
                 <Rate

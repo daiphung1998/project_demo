@@ -1,4 +1,5 @@
-import React, { useState, useRef,useEffect } from 'react'
+
+import React, { useState } from 'react'
 import { Table, Button, Form, Input, Modal } from 'antd';
 import './cart.scss'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,9 +13,9 @@ import {incrementProject as incrementProjectAction,
   payCartNoUser as payCartNoUserAction
 } from '../../redux/actions/userAction'
 import {
-  decrementCountPayByCart as decrementCountPayByCartAction,
-  incrementCountPayByCart as incrementCountPayByCartAction,
-  onchangeInputPayByCart as onchangeInputPayByCartAction
+  // incrementCountPayByCart as incrementCountPayByCartAction,
+  // onchangeInputPayByCart as onchangeInputPayByCartAction
+  deleteItemByPayCart as deleteItemByPayCartAction
 } from './../../redux/actions/products'
 
 const Cart = () => {
@@ -27,13 +28,8 @@ const Cart = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [loading, setLoading] = useState(false)
   const [number, setNumber] = useState(1)
-  const handleInput = useRef(number)
   const [visible, setVisible] = useState(false)
-
-  let totalMoney = 0
-  products.forEach(item => {
-    totalMoney = totalMoney  + (item.price * item.count)
-  });
+  const [totalMoney, setTotalMoney] = useState(0)
 
   const columns = [
     {
@@ -130,26 +126,22 @@ const Cart = () => {
     },
   ];
   const onSelectChange = selectedRowKeys => {
-    // console.log('selectedRowKeys changed: ', selectedRowKeys);
     setSelectedRowKeys(selectedRowKeys);
+    let price = 0
+    products.forEach(item => {
+      selectedRowKeys.forEach(elem => {
+        if (elem === item.id) {
+          price = price + (item.count * item.price)
+        }
+      })
+    })
+    setTotalMoney(price)
   };
 
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
   };
-
-  // const getValue = (event) => {
-  //   setNumber(event.target.value)
-  // }
-
-  // useEffect(() => {
-  //   if ( handleInput.current === "") {
-  //     handleInput.current = 0
-  //   } else {
-  //     handleInput.current = number
-  //   }
-  // },[number])
 
   const getNumberInput = (event) => {
     const index = listProduct.findIndex(item => item.id === Number(event.target.id))
@@ -175,12 +167,10 @@ const Cart = () => {
 
   const increment = (id) => {
     dispatch(incrementProjectAction(id))
-    // dispatch(incrementCountPayByCartAction(id))
   }
 
   const decrement = (id) => {
     dispatch(decrementProjectAction(id))
-    // dispatch(decrementCountPayByCartAction(id))
   }
 
   const deleteItem = (id) => {
@@ -188,12 +178,12 @@ const Cart = () => {
   }
 
   const deleteListItem = () => {
-    const newArr = []
-    selectedRowKeys.forEach(item => {
-      newArr.push(listProduct[item - 1].id)
-    })
+    // const newArr = []
+    // selectedRowKeys.forEach(item => {
+    //   newArr.push(listProduct[item - 1].id)
+    // })
     setLoading(true)
-    dispatch(deleteListItemCartAction(newArr))
+    dispatch(deleteListItemCartAction(selectedRowKeys))
     setTimeout(() => {
       setSelectedRowKeys([])
       setLoading(false)
@@ -203,15 +193,21 @@ const Cart = () => {
   const onFinish = values => {
     console.log(values);
     if (values.username !== undefined && values.phone !== undefined && values.email !== undefined && values.address !== undefined) {
-      const newArr = []
+      const listPayCart = []
       selectedRowKeys.forEach(item => {
-        newArr.push(listProduct[item -1].id)
+        products.forEach(elem => {
+          if(item === elem.id) {
+            listPayCart.push(elem)
+          }
+        })
       })
       const ojb = {
-        listId : newArr,
+        listId : selectedRowKeys,
         profile: values
       }
       dispatch(payCartNoUserAction(ojb))
+      dispatch(deleteItemByPayCartAction(listPayCart))
+      setSelectedRowKeys([])
       setTimeout(() => {
         deleteListItem()
       }, 500);
@@ -219,18 +215,22 @@ const Cart = () => {
     }
   };
 
-  const onFinishFailed = errorInfo => {
-  };
 
   const PayCart = () => {
     if (user.id) {
-      const newArr = []
+      const listPayCart = []
       selectedRowKeys.forEach(item => {
-        newArr.push(listProduct[item -1].id)
+        products.forEach(elem => {
+          if(item === elem.id) {
+            listPayCart.push(elem)
+          }
+        })
       })
-      dispatch(payCartAction(newArr))
+      dispatch(payCartAction(selectedRowKeys))
+      dispatch(deleteItemByPayCartAction(listPayCart))
+      setSelectedRowKeys([])
       setTimeout(() => {
-        dispatch(deleteItemPayCartAction(newArr))
+        dispatch(deleteItemPayCartAction(selectedRowKeys))
       }, 500)
     } else {
       setVisible(true)
@@ -294,7 +294,6 @@ const Cart = () => {
                 remember: true
               }}
               onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
             >
               <label>Họ tên:</label>
               <Form.Item
@@ -338,6 +337,7 @@ const Cart = () => {
                 rules={[{ required: true, message: 'Please input your email!' },
                   ({ getFieldValue }) => ({
                     validator(rule, value = "") {
+                      //eslint-disable-next-line
                       const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
                       if (value.length > 0 && !re.test(value)) {
                         return Promise.reject("Minimum 10 characters");

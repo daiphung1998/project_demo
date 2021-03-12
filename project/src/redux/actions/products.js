@@ -5,7 +5,8 @@ import {
   DECREMENT_COUNT_PAY_BY_CART,
   INCREMENT_COUNT_PAY_BY_CART,
   ONCHANGE_NUMBER_INPUT_BY_CART,
-  SET_EVALUATE
+  SET_EVALUATE,
+  DELETE_ITEM_BY_PAY_CART
 } from '../actionType'
 
 export const getProduct = (payload) => {
@@ -57,3 +58,9 @@ export const setEvaluate = (payload) => {
   }
 }
 
+export const deleteItemByPayCart = (payload) => {
+  return {
+    type: DELETE_ITEM_BY_PAY_CART,
+    payload
+  }
+}

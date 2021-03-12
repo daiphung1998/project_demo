@@ -5,7 +5,8 @@ import {
   DECREMENT_COUNT_PAY_BY_CART,
   INCREMENT_COUNT_PAY_BY_CART,
   ONCHANGE_NUMBER_INPUT_BY_CART,
-  SET_EVALUATE
+  SET_EVALUATE,
+  DELETE_ITEM_BY_PAY_CART
 } from '../actionType'
 
 const initialState = []
@@ -84,6 +85,19 @@ const productReducer = (state = initialState, action) => {
       })
       return state = [...newArr]
     }
+
+    case DELETE_ITEM_BY_PAY_CART: {
+      const newArr = [...state]
+      newArr.forEach(item => {
+        action.payload.forEach(elem => {
+          if (item.id === elem.id) {
+            item.countPay = item.countPay - elem.count
+          }
+        })
+      })
+      return state = [...newArr]
+    }
+
     default:
       return state
   };
