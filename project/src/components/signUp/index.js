@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, InputNumber } from 'antd';
 import {Link} from "react-router-dom"
 
 const tailLayout = {
@@ -41,6 +41,23 @@ const SingUp = () => {
         >
           <Input />
         </Form.Item>
+
+        <Form.Item
+          label="Địa chỉ"
+          name="address"
+          rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Số điện thoại"
+          name="phoneNumber"
+          rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+          <InputNumber />
+        </Form.Item>
+
         <Form.Item
           label="Username"
           name="username"
@@ -52,6 +69,13 @@ const SingUp = () => {
         <Form.Item
           label="Password"
           name="password"
+          rules={[{ required: true, message: 'Please input your password!' }]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          label="Nhập lại Password"
+          name="password2"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
           <Input.Password />

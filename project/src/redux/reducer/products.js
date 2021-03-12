@@ -4,7 +4,7 @@ import {
   DECREMENT_COUNT_PAY_PROFILE,
   DECREMENT_COUNT_PAY_BY_CART,
   INCREMENT_COUNT_PAY_BY_CART,
-  ONCHANGE_NUMBER_INPUT_BY_CART,
+  // ONCHANGE_NUMBER_INPUT_BY_CART,
   SET_EVALUATE,
   DELETE_ITEM_BY_PAY_CART
 } from '../actionType'
@@ -61,16 +61,16 @@ const productReducer = (state = initialState, action) => {
       return state = [...newArr]
     }
 
-    case ONCHANGE_NUMBER_INPUT_BY_CART: {
-      const newArr = [...state]
-      newArr.forEach(item => {
-        if (item.id === action.payload.id) {
-          item.countPay = item.countPay + action.payload.numberCurrent
-          item.countPay = item.countPay - Number(action.payload.value)
-        }
-      })
-      return state = [...newArr]
-    }
+    // case ONCHANGE_NUMBER_INPUT_BY_CART: {
+    //   const newArr = [...state]
+    //   newArr.forEach(item => {
+    //     if (item.id === action.payload.id) {
+    //       item.countPay = item.countPay + action.payload.numberCurrent
+    //       item.countPay = item.countPay - Number(action.payload.value)
+    //     }
+    //   })
+    //   return state = [...newArr]
+    // }
 
     case SET_EVALUATE: {
       const newArr = [...state]

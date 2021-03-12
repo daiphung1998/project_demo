@@ -237,13 +237,13 @@ const Cart = () => {
     }
   };
 
-  const handleOk = () => {
-    setVisible(false)
-  };
+  // const handleOk = () => {
+  //   setVisible(false)
+  // };
 
-  const handleCancel = () => {
-    setVisible(false)
-  };
+  // const handleCancel = () => {
+  //   setVisible(false)
+  // };
 
   const onReset = () => {
     form.resetFields();

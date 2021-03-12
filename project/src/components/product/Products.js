@@ -17,7 +17,12 @@ const Products = ({type}) => {
       params.type = type
     }
     try {
-      const response = await productApi.getAll(params)
+      let response = []
+      if (params.type === '') {
+        response = await productApi.getAll()
+      } else {
+        response = await productApi.getAll(params)
+      }
       setProducts(response)
       setListSort(response)
     } catch (error) {
