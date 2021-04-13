@@ -1,0 +1,25 @@
+.manageProduct {
+  .logo {
+    width: 100%;
+    height:6rem;
+  }
+  .anticon[tabindex] {
+    font-size: 25px;
+    margin-left: 20px;
+    line-height: 64px;
+    transition: color 0.3s;
+    &:hover {
+      color: #1890ff;
+    }
+  }
+
+  #components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+  }
+
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+
+
+}
