@@ -1,4 +1,10 @@
 {
+  "types": [
+    { "id": 1, "type": "cu"},
+    { "id": 2, "type": "rau"},
+    { "id": 3, "type": "qua"},
+    { "id": 4, "type": "nam"}
+  ],
   "products": [
     {
       "id": 1,
@@ -178,21 +184,24 @@
   "users": [
     {
       "id": "1",
-      "name": "name 1",
-      "password": "password 1",
+      "name": "Phạm Ngọc Thảo",
+      "password": "ngocthao98",
       "cart": [],
       "oder": [],
-      "userName": "userName 1",
-      "gender": "gender 1"
+      "userName": "phamthao",
+      "gender": "nu",
+      "email": "phamthao.hd@gmail.com",
+      "address": "kinh môn hải dương",
+      "phone":"0867585510"
     },
     {
       "id": "2",
-      "name": "name 2",
-      "password": "password 2",
+      "name": "Phùng Thế Đại",
+      "password": "daiphung1998",
       "cart": [],
       "oder": [],
-      "userName": "userName 2",
-      "gender": "gender 2",
+      "userName": "daiphung",
+      "gender": "nam",
       "email": "daiphung.hd@gmail.com",
       "address": "18T1 theGolden An khánh, Hoài đức, Hà Nội",
       "phone": "0963310336"

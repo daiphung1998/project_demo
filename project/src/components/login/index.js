@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Checkbox } from 'antd';
-import {Link} from "react-router-dom"
+import {Link, Redirect } from "react-router-dom"
+import UserApi from '../../api/userApi'
+import './style.scss';
+
 
 const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
+  wrapperCol: { offset: 6, span: 18 },
 };
 const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 16 },
 };
 const Login = () => {
+
+  const [listUser, setListUser] = useState({})
+
+  const fetchUser = async () => {
+    const response = await UserApi.getUser()
+    setListUser(response)
+  }
+
+  useEffect (() => {
+    fetchUser();
+  },[])
+
   const onFinish = (values) => {
+
+    const user = listUser.filter(item => (item.userName === values.username && item.password === values.password))
+    if (user.length > 0) {
+      console.log("áasasas");
+      <Redirect to="/"/>
+    } else {
+      alert("sai tài khoản mật khẩu")
+    }
     console.log('Success:', values);
   };
 
@@ -58,7 +81,7 @@ const Login = () => {
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button className="login__btn--login" type="primary" htmlType="submit">
                 Đăng nhập
               </Button>
               <Link to='/singup'>

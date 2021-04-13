@@ -3,12 +3,12 @@ import './style.scss'
 import MenuItem from './MenuItem'
 import Search from './search/Search'
 import { Affix } from 'antd';
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+// import { NavLink } from 'react-router-dom'
+
 
 
 const MyMenu = () => {
-  const user = useSelector(store => store.userReducer.user)
+  // const user = useSelector(store => store.userReducer.user)
   const menu = [
     {
       title: 'Trang chủ',
@@ -96,11 +96,11 @@ const MyMenu = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="nav">
                     <MenuItem dataChildren={menu} />
-                    {user.id === 12254225 && (
+                    {/* {user.id === 12254225 && (
                       <li className="nav-item" key="admin">
                         <NavLink activeClassName="active" exact className="nav-link" to="/admin">Quản lý</NavLink>
                       </li>
-                    )}
+                    )} */}
                   </ul>
                 </div>
               </nav>

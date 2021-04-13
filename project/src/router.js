@@ -6,7 +6,7 @@ import Products from './components/product/Products'
 import searchProduct from './components/menu/search/SearchProductByName'
 import Login from './components/login/index'
 import SingUp from './components/signUp/index'
-import Admin from './components/admin/index'
+
 
 // const AuthLogin = Component => {
 //   const [isOk, setIsOk] = useState(true)
@@ -30,7 +30,6 @@ const router = [
   {path: '/searchProducts', exact: true, type: '', Component: searchProduct},
   {path: '/login', exact: true, type: '', Component: Login},
   {path: '/singup', exact: true, type: '', Component: SingUp},
-  {path: '/admin', exact: true, type: '', Component: Admin},
   {path: '', exact: true, Component: NotFound}
 ]
 

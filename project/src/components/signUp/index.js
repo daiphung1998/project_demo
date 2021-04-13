@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
+
 };
 
 const layout = {
@@ -82,11 +83,15 @@ const SingUp = () => {
         </Form.Item>
 
         <Form.Item {...tailLayout}>
-          <Link to='/login'>
+            <Link to="/login" >
+              <Button type="primary"  htmlType="submit">
+                đăng nhập
+              </Button>
+            </Link>
+
             <Button type="primary" danger htmlType="submit">
               Đăng ký
             </Button>
-          </Link>
         </Form.Item>
       </Form>
     </div>

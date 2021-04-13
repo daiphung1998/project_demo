@@ -340,7 +340,7 @@ const Cart = () => {
                       //eslint-disable-next-line
                       const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
                       if (value.length > 0 && !re.test(value)) {
-                        return Promise.reject("Minimum 10 characters");
+                        return Promise.reject("email chưa đúng đinh dạng");
                       } else {
                         return Promise.resolve();
                       }
