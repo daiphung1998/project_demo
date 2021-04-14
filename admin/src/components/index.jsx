@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -7,8 +7,9 @@ import {
   TeamOutlined
 } from '@ant-design/icons';
 import './style.scss';
+import User from './content/users/index';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content,  Sider } = Layout;
 const { SubMenu } = Menu;
 
 const Body = () => {
@@ -21,6 +22,7 @@ const Body = () => {
   const handleClickMenu = e => {
     console.log(e);
   }
+
   return (
     <div className="manageProduct">
       <Layout>
@@ -28,13 +30,14 @@ const Body = () => {
           <div className="logo" />
 
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={handleClickMenu}>
-            <Menu.Item key="1" icon={<UserOutlined />}>
+            <Menu.Item key="user" icon={<UserOutlined />}>
               Users
             </Menu.Item>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Products">
-              <Menu.Item key="6">Rau</Menu.Item>
-              <Menu.Item key="8">Củ</Menu.Item>
-              <Menu.Item key="9">Quả</Menu.Item>
+              <Menu.Item key="rau">Rau</Menu.Item>
+              <Menu.Item key="cu">Củ</Menu.Item>
+              <Menu.Item key="qua">Quả</Menu.Item>
+              <Menu.Item key="nam">Nấm</Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
@@ -53,7 +56,7 @@ const Body = () => {
               minHeight: 280,
             }}
           >
-            Content
+            <User/>
           </Content>
         </Layout>
       </Layout>
