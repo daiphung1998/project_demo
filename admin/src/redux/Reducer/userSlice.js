@@ -1,14 +1,17 @@
 import {createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import getUser from '../../api/fetchUser';
+import ApiUser from '../../api/apiUser';
 
 
 export const fetchUser = createAsyncThunk(
   'users/fetchUser',
   async () => {
-    const response = await getUser.getAllUser()
+    const response = await ApiUser.getAllUser()
     return response
   }
 )
+
+
+
 const userReducer = createSlice({
   name: 'user',
   initialState: {
@@ -22,7 +25,6 @@ const userReducer = createSlice({
 
   extraReducers: {
     [fetchUser.pending]: (state, action) =>{
-      console.log(action);
     },
     [fetchUser.fulfilled]: (state, action) => {
       state.listUser = action.payload

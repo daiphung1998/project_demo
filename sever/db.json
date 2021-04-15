@@ -1,9 +1,21 @@
 {
   "types": [
-    { "id": 1, "type": "cu"},
-    { "id": 2, "type": "rau"},
-    { "id": 3, "type": "qua"},
-    { "id": 4, "type": "nam"}
+    {
+      "id": 1,
+      "type": "cu"
+    },
+    {
+      "id": 2,
+      "type": "rau"
+    },
+    {
+      "id": 3,
+      "type": "qua"
+    },
+    {
+      "id": 4,
+      "type": "nam"
+    }
   ],
   "products": [
     {
@@ -192,7 +204,9 @@
       "gender": "nu",
       "email": "phamthao.hd@gmail.com",
       "address": "kinh môn hải dương",
-      "phone":"0867585510"
+      "phone": "0867585510",
+      "dateCreate": "2013-02-04T10:35:24-08:00",
+      "dateUpdate": "2013-02-04T10:35:24-08:00"
     },
     {
       "id": "2",
@@ -204,7 +218,107 @@
       "gender": "nam",
       "email": "daiphung.hd@gmail.com",
       "address": "18T1 theGolden An khánh, Hoài đức, Hà Nội",
-      "phone": "0963310336"
+      "phone": "0963310336",
+      "dateCreate": "2015-02-04T10:35:24-08:00",
+      "dateUpdate": "2015-02-04T10:35:24-08:00"
+    },
+    {
+      "id": "3",
+      "name": "phong",
+      "password": "phong",
+      "cart": [],
+      "oder": [],
+      "userName": "phong",
+      "gender": "nam",
+      "email": "âsasd.hd@gmail.com",
+      "address": "ádsadsadsad Hà Nội",
+      "phone": "0933103536",
+      "dateCreate": "2013-02-06T10:35:24-08:00",
+      "dateUpdate": "2013-02-05T10:35:24-08:00"
+    },
+    {
+      "id": "6",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2014-02-05T10:35:24-08:00",
+      "dateUpdate": "2015-03-04T10:35:24-08:00"
+    },
+    {
+      "id": "7",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2018-05-04T10:35:24-08:00",
+      "dateUpdate": "2019-06-04T10:35:24-08:00"
+    },
+    {
+      "id": "8",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2011-02-04T10:35:24-08:00",
+      "dateUpdate": "2011-02-04T10:35:24-08:00"
+    },
+    {
+      "id": "9",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2016-02-01T10:35:24-09:00",
+      "dateUpdate": "2016-02-08T10:35:24-07:00"
+    },
+    {
+      "id": "10",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2019-02-04T10:35:24-08:00",
+      "dateUpdate": "20139-03-04T10:35:24-09:00"
+    },
+    {
+      "id": "11",
+      "name": " Đại",
+      "password": "sadsadsad",
+      "cart": [],
+      "oder": [],
+      "userName": "sdad",
+      "gender": "nam",
+      "email": "ádadada.hd@gmail.com",
+      "address": "ádasdkhánh, Hoài đức, Hà Nội",
+      "phone": "0963310336",
+      "dateCreate": "2013-08-04T10:35:24-08:00",
+      "dateUpdate": "2016-07-04T10:35:24-09:00"
     }
   ]
 }

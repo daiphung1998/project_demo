@@ -1,0 +1,45 @@
+.tableUser {
+  &__button {
+    button {
+      text-align: center;
+      width: 85px;
+      &:nth-child(1) {
+        margin-right: 10px;
+      }
+    }
+  }
+  &__action {
+    width: 600px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 4rem;
+    justify-items: 5rem;
+    &--search {
+      position: relative;
+      margin-right: 5rem;
+      input {
+        width: 100%;
+        width: 20rem;
+        margin: auto;
+        height: 3.5rem;
+        padding: 1.2rem;
+        border-radius: 1.5rem;
+      }
+      i {
+        position: absolute;
+        cursor: pointer;
+        width: 3rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        right: 0;
+      }
+    }
+    &--addUser {
+      margin-left: 5rem;
+      button {
+        border-radius: 1.5rem;
+        font-weight: 600
+      }
+    }
+  }
+}

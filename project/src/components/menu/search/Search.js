@@ -10,8 +10,7 @@ const Search = () => {
   const listProduct = useSelector(store => store.productReducer)
 
   const setNameSearch = event => {
-    const value = event.target.value
-    setSearch(value)
+    setSearch(event.target.value)
   }
   const onSearch = () => {
     const newSort = listProduct.filter(item => item.name.toLowerCase().indexOf(search) !== -1)
