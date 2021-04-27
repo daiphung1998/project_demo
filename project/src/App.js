@@ -14,7 +14,9 @@ import { useDispatch } from 'react-redux';
 import ProductApi from './api/productApi'
 import UserApi from './api/userApi'
 import {getProduct as getProductAction} from './redux/actions/products'
-import {getUser as getUserAction} from './redux/actions/userAction'
+import {getUser as getUserAction} from './redux/actions/userAction';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const style = {
   height: 40,
@@ -59,7 +61,7 @@ const App = () => {
                     const {Component} = item
                     return (
                       <Route path={item.path} exact={item.exact} key={index}>
-                        <Component type={item.type}/>
+                        <Component typeID={item.type}/>
                       </Route>
                     )
                   })

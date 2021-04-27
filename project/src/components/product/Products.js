@@ -6,19 +6,20 @@ import './products.scss'
 import CardItem from './CardItem'
 import { Link } from 'react-router-dom'
 
-const Products = ({type}) => {
+const Products = ({typeID}) => {
+  console.log(typeID);
   const [products, setProducts] = useState([])
   const [listSort, setListSort] = useState([])
   const fetchProducts = async () => {
     const params = {
-      type: ''
+      typeID: ''
     }
-    if(type !== '') {
-      params.type = type
+    if(typeID !== '') {
+      params.typeID = typeID
     }
     try {
       let response = []
-      if (params.type === '') {
+      if (params.typeID === '') {
         response = await productApi.getAll()
       } else {
         response = await productApi.getAll(params)
