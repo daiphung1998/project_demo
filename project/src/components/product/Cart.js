@@ -119,7 +119,7 @@ const Cart = () => {
       render: (text, record) => {
         return (
           <>
-             <Button danger onClick={() => deleteItem(record.id)}>Xoá</Button>
+            <Button danger onClick={() => deleteItem(record.id)}>Xoá</Button>
           </>
         )
       }

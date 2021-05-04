@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const settings = {
   infinite: true,
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 3,
   speed: 1000,
   autoplaySpeed: 2000,

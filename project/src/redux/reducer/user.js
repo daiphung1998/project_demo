@@ -17,11 +17,9 @@ const initialState = {
     id: 12254225,
     name: 'dai',
     age: 22,
-    cart: [
-    ],
-    oder: [
-
-    ]
+    img : '',
+    cart: [],
+    oder: [],
   }
 }
 
