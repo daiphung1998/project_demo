@@ -20,7 +20,7 @@ const Header = () => {
               myStore.id ? (
                 <div className="login__imgUser">
                   {
-                    myStore.img ? <img src={myStore.img}/> : <i className="fas fa-user" />
+                    myStore.img ? <img src={myStore.img} alt="abc"/> : <i className="fas fa-user" />
                   }
                   <div className="login__listchose">
                     <Menu onClick={handleMenuClick}>

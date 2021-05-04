@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Pagination } from 'antd'
 import SearchProduct from './search/SearchProduct'
 import productApi from '../../api/productApi'
 import Sort from './sort/Sort'
@@ -6,10 +7,15 @@ import './products.scss'
 import CardItem from './CardItem'
 import { Link } from 'react-router-dom'
 
+
 const Products = ({typeID}) => {
-  console.log(typeID);
   const [products, setProducts] = useState([])
   const [listSort, setListSort] = useState([])
+  const [current, setCurrent] = useState(1)
+  const [pageSize, setPageSize] = useState(5)
+  const [listProductPage, setListProductPage] = useState([])
+
+
   const fetchProducts = async () => {
     const params = {
       typeID: ''
@@ -36,17 +42,17 @@ const Products = ({typeID}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // useEffect(() => {
+  //   for (let i = 0; i < current * pageSize; i++) {
+  //     listProductPage.push(listSort[i])
+  //   }
+  //   console.log(listSort);
+  //   console.log(listProductPage);
+  // }, [current])
+
   const searchByPrice1 = value => {
-    if (value.item.price1 === "") {
-      const newArr = products.filter(item => item.price < value.item.price2)
-      setListSort(newArr)
-    } else if (value.item.price2 === "") {
-      const newArr = products.filter(item => item.price > value.item.price1)
-      setListSort(newArr)
-    } else {
-      const newArr = products.filter(item => (item.price > value.item.price1) && (item.price < value.item.price2) )
-      setListSort(newArr)
-    }
+    const newArr = products.filter(item => (item.price >= value.item.price1 && item.price <= value.item.price2))
+    setListSort(newArr)
   }
 
   const sortProduct1 = key => {
@@ -96,22 +102,54 @@ const Products = ({typeID}) => {
     }
   }
 
+  const onShowSizeChange = (current, pageSize) => {
+    setPageSize(pageSize)
+    setCurrent(1)
+  }
+  const onShowCurrentChange = (current) => {
+    setCurrent(current)
+  }
+
   return (
     <div className="products">
+
       <div className="col-12">
-        <span><Link to="/">trang chủ</Link> <i className="fas fa-chevron-right"></i> <Link to="/products">sản phẩm</Link> </span>
+        <span>
+          <Link to="/">
+            trang chủ
+          </Link>
+          <i className="fas fa-chevron-right" />
+          <Link to="/products">
+            sản phẩm
+          </Link>
+        </span>
       </div>
+
       <div className="row">
+
         <div className="col-lg-3">
           <SearchProduct
             searchByPrice={searchByPrice1}
           />
         </div>
+
         <div className="col-lg-9">
+
           <div className="col-12 sort">
             <Sort sortProduct={sortProduct1}/>
           </div>
+
           <div className="row">
+            <div className="col-12">
+              <Pagination
+                // showSizeChanger
+                onShowSizeChange={onShowSizeChange}
+                onChange = {onShowCurrentChange}
+                defaultPageSize={pageSize}
+                defaultCurrent={current}
+                total={listSort.length}
+              />
+            </div>
             {
               listSort.map((item, index) => {
                 return (

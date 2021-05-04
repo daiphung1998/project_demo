@@ -20,7 +20,7 @@ const SearchProduct = (props) => {
   ]
   const prices = [
     {
-      price1: '',
+      price1: 0,
       price2: 100000
     },
     {
@@ -41,7 +41,7 @@ const SearchProduct = (props) => {
     },
     {
       price1: 1000000,
-      price2: ''
+      price2: 9999999999999
     }
   ]
   const searchByPrice = (item) => {
@@ -75,23 +75,12 @@ const SearchProduct = (props) => {
           <ul>
             {
               prices.map((item, index) => {
-                if(index === 0) {
-                  return (
-                    <li key={index} onClick={() => searchByPrice({item})}>
-                      <p>Dưới {item.price2}</p>
-                    </li>
-                  )
-                }
-                if(index === prices.length - 1) {
-                  return (
-                    <li key={index} onClick={()=>searchByPrice({item})}>
-                      <p>Trên {item.price1}</p>
-                    </li>
-                  )
-                }
                 return (
-                  <li key={index} onClick={()=>searchByPrice({item})}>
-                    <p>{item.price1}{' -> '}{item.price2}</p>
+                  <li key={index} onClick={() => searchByPrice({item})}>
+                    <p>
+                      {item.price1 === 0 ? 'Dưới ' : item.price1 === 1000000 ? 'Trên' : item.price1 + ' -> '}
+                      {item.price2 === 9999999999999 ? ' 1000000' : item.price2}
+                    </p>
                   </li>
                 )
               })

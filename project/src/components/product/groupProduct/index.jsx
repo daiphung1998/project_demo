@@ -29,13 +29,14 @@ const GroupProduct = ({title, products, loai, species}) => {
               <Slider {...settings}>
                 {
                     products.map((item, index) => {
-                      if (item.typeID === loai || item.species === species) {
+                      if(item.typeID === loai || item.species === species) {
                         return (
                           <div className="item"  key={index}>
                             <CardItem item={item}/>
                           </div>
                         )
                       }
+                      return 0;
                     })
                   }
               </Slider>
