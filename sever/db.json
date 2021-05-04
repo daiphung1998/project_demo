@@ -501,6 +501,44 @@
       "phone": "0963310336",
       "dateCreate": "2013-08-04T10:35:24-08:00",
       "dateUpdate": "2016-07-04T10:35:24-09:00"
+    },
+    {
+      "name": "Phạm Ngọc Thảo",
+      "email": "daiphung.hd@gmail.com",
+      "userName": "daiphung",
+      "password": "123",
+      "confirm": "123",
+      "phone": "0963310336",
+      "address": [
+        "haiduong",
+        "kinhmon",
+        "anphu"
+      ],
+      "gender": "0",
+      "dateUpdate": "2021-04-29T14:30:46+07:00",
+      "dateCreate": "2021-04-29T14:30:46+07:00",
+      "cart": [],
+      "oder": [],
+      "id": "Y9xJoFJ"
+    },
+    {
+      "name": "rggd",
+      "email": "daiphung.hd@gmail.com",
+      "userName": "daiphung",
+      "password": "1",
+      "confirm": "1",
+      "phone": "1",
+      "address": [
+        "haiduong",
+        "kinhmon",
+        "anphu"
+      ],
+      "gender": "0",
+      "dateUpdate": "2021-04-29T14:32:33+07:00",
+      "dateCreate": "2021-04-29T14:32:33+07:00",
+      "cart": [],
+      "oder": [],
+      "id": "BvoQgXB"
     }
   ]
 }
