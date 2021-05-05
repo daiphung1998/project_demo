@@ -5,11 +5,14 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom'
 
 const settings = {
+  className: "center",
+  centerMode: true,
   infinite: true,
   slidesToShow: 3,
-  slidesToScroll: 3,
-  speed: 1000,
-  autoplaySpeed: 2000,
+  speed: 500,
+  autoplaySpeed: 1000,
+  centerPadding: "60px",
+
 };
 
 const GroupProduct = ({title, products, loai, species}) => {
