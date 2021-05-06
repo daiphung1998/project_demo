@@ -380,7 +380,29 @@
       "id": "1",
       "name": "Phạm Ngọc Thảo",
       "password": "ngocthao98",
-      "cart": [],
+      "cart": [
+        {
+          "id": 17,
+          "name": "Táo xanh Mỹ",
+          "price": 50000,
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "count": 1
+        },
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "price": 50000,
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "count": 1
+        },
+        {
+          "id": 15,
+          "name": "Hành lá",
+          "price": 50000,
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "count": 1
+        }
+      ],
       "oder": [],
       "userName": "phamthao",
       "gender": "nu",
@@ -541,7 +563,5 @@
       "id": "BvoQgXB"
     }
   ],
-  "oders": [
-  ]
+  "oders": []
 }
-  
