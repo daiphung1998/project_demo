@@ -380,22 +380,7 @@
       "id": "1",
       "name": "Phạm Ngọc Thảo",
       "password": "ngocthao98",
-      "cart": [
-        {
-          "id": 3,
-          "name": "Nấm đùi gà",
-          "price": 150000,
-          "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
-          "count": 2
-        },
-        {
-          "id": 23,
-          "name": "Nấm đùi gà",
-          "price": 150000,
-          "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
-          "count": 2
-        }
-      ],
+      "cart": [],
       "oder": [],
       "userName": "phamthao",
       "gender": "nu",
