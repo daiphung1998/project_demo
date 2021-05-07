@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux'
-import { Row, Col, Menu, message } from 'antd';
+import { Row, Col, Menu, message, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import userApi from '../../api/userApi'
+
 
 const Header = () => {
   const myStore = useSelector(store => store.userReducer.user)
+  const [myUser, setMyUser] = useState(myStore)
+
+  useEffect(() => {
+    fetchUser()
+  }, [myStore])
+
+  const fetchUser = async () => {
+    const response = await userApi.getUser()
+    setMyUser(response)
+  }
   const handleMenuClick = (e) => {
     message.info('Click menu');
     console.log('click', e);
@@ -17,26 +29,28 @@ const Header = () => {
         <Row>
           <Col span={5} offset={1} className="login">
             {
-              myStore.id ? (
-                <div className="login__imgUser">
-                  {
-                    myStore.img ? <img src={myStore.img} alt="abc"/> : <i className="fas fa-user" />
-                  }
-                  <div className="login__listchose">
-                    <Menu onClick={handleMenuClick}>
-                      <Menu.Item key="1" icon={<UserOutlined />}>
-                        thông tin cá nhân
-                      </Menu.Item>
-                      <Menu.Item key="2" icon={<UserOutlined />}>
-                        đơn hàng
-                      </Menu.Item>
-                      <Menu.Item key="3" icon={<UserOutlined />}>
-                        logout
-                      </Menu.Item>
-                    </Menu>
+              myStore && (
+                myUser.id ? (
+                  <div className="login__imgUser">
+                    {
+                      myUser.img ? <img src={myUser.img} alt="abc"/> : <i className="fas fa-user" />
+                    }
+                    <div className="login__listchose">
+                      <Menu onClick={handleMenuClick}>
+                        <Menu.Item key="1" icon={<UserOutlined />}>
+                          thông tin cá nhân
+                        </Menu.Item>
+                        <Menu.Item key="2" icon={<UserOutlined />}>
+                          đơn hàng
+                        </Menu.Item>
+                        <Menu.Item key="3" icon={<UserOutlined />}>
+                          logout
+                        </Menu.Item>
+                      </Menu>
+                    </div>
                   </div>
-                </div>
-              ) : <Link to='/login'>Đăng Nhập</Link>
+                ) : <Link to='/login'>Đăng Nhập</Link>
+              )
             }
           </Col>
           <Col span={12} className="logo">
@@ -45,7 +59,13 @@ const Header = () => {
           <Col span={5} className="cart">
             <Link to="/cart">
               <i className="fas fa-shopping-cart">
-                <span>{myStore.cart ? myStore.cart.length : '0'}</span>
+                {
+                  myUser && (
+                  <Badge count={myUser.cart.length} overflowCount={50}>
+                    <a href="#" className="head-example" />
+                  </Badge>
+                  )
+                }
               </i>
             </Link>
           </Col>

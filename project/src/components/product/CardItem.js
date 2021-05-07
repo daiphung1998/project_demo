@@ -2,7 +2,8 @@ import React from 'react'
 import { Card, notification } from 'antd'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addCart as addCartAction } from '../../redux/actions/userAction'
+import { addCart as addCartAction, getUser} from '../../redux/actions/userAction'
+import userApi from '../../api/userApi'
 // import { decrementCountPay as decrementCountPayAction } from '../../redux/actions/products'
 
 const openNotification = (item) => {
@@ -15,8 +16,17 @@ const openNotification = (item) => {
 
 const CardItem = ({item}) => {
   const dispatch = useDispatch()
-  const addToCart = () => {
+  const addToCart = async () => {
     dispatch(addCartAction(item))
+    try {
+      const response = await userApi.getUser()
+      await setTimeout(() => {
+        dispatch(getUser(response))
+      }, 100);
+    } catch (error) {
+      console.log(error);
+    }
+
     // dispatch(decrementCountPayAction(item))
     openNotification(item)
   }

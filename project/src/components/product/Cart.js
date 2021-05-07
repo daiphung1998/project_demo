@@ -1,22 +1,24 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Table, Button, Form, Input, Modal } from 'antd';
 import './cart.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import {incrementProject as incrementProjectAction,
+import {
+  incrementProject as incrementProjectAction,
   decrementProject as decrementProjectAction,
   deleteItemCart as deleteItemCartAction,
   numberInputProject as numberInputProjectAction,
   deleteListItemCart as deleteListItemCartAction,
   payCart as payCartAction,
   deleteItemPayCart as deleteItemPayCartAction,
-  payCartNoUser as payCartNoUserAction
+  payCartNoUser as payCartNoUserAction,
 } from '../../redux/actions/userAction'
 import {
   // incrementCountPayByCart as incrementCountPayByCartAction,
   // onchangeInputPayByCart as onchangeInputPayByCartAction
   deleteItemByPayCart as deleteItemByPayCartAction
 } from './../../redux/actions/products'
+import userApi from '../../api/userApi'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -24,12 +26,20 @@ const Cart = () => {
   const user = useSelector(store => store.userReducer.user)
 
   const listProduct = useSelector(store => store.productReducer)
-  const products =  useSelector(store => store.userReducer.user.cart)
+  const dataProducts =  useSelector(store => store.userReducer.user.cart)
+
+  const [products, setProducts] = useState(dataProducts)
+
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [loading, setLoading] = useState(false)
   const [number, setNumber] = useState(1)
   const [visible, setVisible] = useState(false)
   const [totalMoney, setTotalMoney] = useState(0)
+
+
+  useEffect(() => {
+    fetchApi()
+  },[user])
 
   const columns = [
     {
@@ -125,6 +135,10 @@ const Cart = () => {
       }
     },
   ];
+
+
+
+
   const onSelectChange = selectedRowKeys => {
     setSelectedRowKeys(selectedRowKeys);
     let price = 0
@@ -142,6 +156,16 @@ const Cart = () => {
     selectedRowKeys,
     onChange: onSelectChange,
   };
+
+
+  const fetchApi = async () => {
+    try {
+      const response = await userApi.getUser()
+      setProducts(response.cart)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getNumberInput = (event) => {
     const index = listProduct.findIndex(item => item.id === Number(event.target.id))
@@ -166,15 +190,18 @@ const Cart = () => {
   }
 
   const increment = (id) => {
-    dispatch(incrementProjectAction(id))
+     dispatch(incrementProjectAction(id))
+
   }
 
   const decrement = (id) => {
     dispatch(decrementProjectAction(id))
+
   }
 
   const deleteItem = (id) => {
     dispatch(deleteItemCartAction(id))
+
   }
 
   const deleteListItem = () => {
@@ -229,6 +256,7 @@ const Cart = () => {
       dispatch(payCartAction(selectedRowKeys))
       dispatch(deleteItemByPayCartAction(listPayCart))
       setSelectedRowKeys([])
+      setTotalMoney(0)
       setTimeout(() => {
         dispatch(deleteItemPayCartAction(selectedRowKeys))
       }, 500)
@@ -263,6 +291,7 @@ const Cart = () => {
       <div className="cart__button">
         <Button
           type="primary"
+          danger
           onClick={deleteListItem}
           disabled={!hasSelected}
           loading={loading} >

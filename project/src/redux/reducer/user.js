@@ -1,5 +1,7 @@
+import userApi from '../../api/userApi'
+
 import {
-  // GET_USERS,
+  GET_USERS,
   ADD_CART,
   INCREMENT_PROJECT,
   DECREMENT_PROJECT,
@@ -14,9 +16,7 @@ import {
 
 const initialState = {
   user: {
-    id: 12254225,
-    name: 'dai',
-    age: 22,
+    id: '',
     img : '',
     cart: [],
     oder: [],
@@ -24,16 +24,17 @@ const initialState = {
 }
 
 const useReducer  = (state = initialState, action) => {
-  const user = JSON.parse(JSON.stringify(state.user))
+  const user = {...state.user}
   const cart = user.cart
   const oder = user.oder
 
   switch (action.type) {
-    // case GET_USERS:
-    //   return {
-    //     ...state,
-    //     user: action.payload
-    //   }
+    case GET_USERS:{
+      return {
+        ...state,
+        user: action.payload
+      }
+    }
     // gộp các mặt hàng khi chưa đăng nhập và sau khi đăng nhập có trước ở tài khoản
     // lặp cart ko có user xem có chùng với sản phẩm nào trong tài khoản
     // ko thì cộng 2 count lại còn không có thì thêm mới cart
@@ -41,6 +42,7 @@ const useReducer  = (state = initialState, action) => {
     case ADD_CART: {
       let cartAction = user.cart
       let newData = {}
+      let newUser = {}
       if (cartAction.length >= 0) {
         const index = cartAction.findIndex(item => item.id === action.payload.id)
         if (index !== -1) {
@@ -50,11 +52,16 @@ const useReducer  = (state = initialState, action) => {
           }
 
           cartAction.splice(index, 1 , newData)
-          return {
-            ...state,
-            user: user
+          newUser = {
+            ...user,
+            cart: cartAction
           }
 
+          userApi.addCart(user.id, newUser)
+          return {
+            ...state,
+            user: newUser
+          }
         } else {
           newData = {
             id: action.payload.id,
@@ -65,9 +72,15 @@ const useReducer  = (state = initialState, action) => {
             count: 1,
           }
           cartAction.push(newData)
+          newUser = {
+            ...user,
+            cart: cartAction
+          }
+
+          userApi.addCart(user.id, newUser)
           return {
             ...state,
-            user: user
+            user: newUser
           }
         }
       }
@@ -77,6 +90,7 @@ const useReducer  = (state = initialState, action) => {
     case ADD_CART_BY_PROFILE: {
       let cartAction = user.cart
       let newData = {}
+      let newUser = {}
         const index = cartAction.findIndex(item => item.id === action.payload.product.id)
         if (index !== -1) {
           newData = {
@@ -85,10 +99,11 @@ const useReducer  = (state = initialState, action) => {
           }
 
           cartAction.splice(index, 1 , newData)
-          return {
-            ...state,
-            user: user
+          newUser = {
+            ...user,
+            cart: cartAction
           }
+          return userApi.addCart(user.id, newUser)
         } else {
           newData = {
             id: action.payload.product.id,
@@ -98,26 +113,29 @@ const useReducer  = (state = initialState, action) => {
             count: action.payload.number,
           }
           cartAction.push(newData)
-          return {
-            ...state,
-            user: user
+          newUser = {
+            ...user,
+            cart: cartAction
           }
+          return userApi.addCart(user.id, newUser)
         }
     }
 
     case INCREMENT_PROJECT:{
       const index = cart.findIndex(item => item.id === action.payload)
         if (index !== -1) {
-          if (cart[index].count >= cart[index].countPay) {
+          const number = cart[index].count + 1;
+          if (number >= cart[index].countPay) {
             cart[index].count = cart[index].countPay
           } else {
-            cart[index].count = cart[index].count  + 1
+            cart[index].count =number
           }
         }
-      return {
-        ...state,
-        user: user
-      }
+        userApi.addCart(user.id, user)
+        return {
+          ...state,
+          user: user
+        }
     }
 
     case DECREMENT_PROJECT:{
@@ -131,6 +149,8 @@ const useReducer  = (state = initialState, action) => {
           }
 
         }
+
+      userApi.addCart(user.id, user)
       return {
         ...state,
         user: user
@@ -165,6 +185,7 @@ const useReducer  = (state = initialState, action) => {
 
     case DELETE_ITEM_CART: {
       user.cart = user.cart.filter(item => item.id !== action.payload)
+      userApi.addCart(user.id, user)
       return {
         ...state,
         user: user
@@ -172,12 +193,19 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case DELETE_LIST_ITEM_CART: {
+      let newCart = [...user.cart]
       action.payload.forEach(elem => {
-        user.cart = user.cart.filter(item => item.id !== elem)
+        newCart = newCart.filter(item => item.id !== elem)
       });
+
+      const newUser = {
+        ...state,
+        cart: newCart
+      }
+      userApi.addCart(user.id, newUser)
       return {
         ...state,
-        user: user
+        user: newUser
       }
     }
 

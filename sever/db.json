@@ -162,7 +162,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 21,
+      "id": 24,
       "name": "Khoai Lang",
       "countPay": 0,
       "price": 250000,
@@ -196,7 +196,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 15,
+      "id": 25,
       "name": "Hành lá",
       "countPay": 100,
       "price": 50000,
@@ -230,7 +230,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 12,
+      "id": 111,
       "name": "Hành lá",
       "countPay": 100,
       "price": 50000,
@@ -247,7 +247,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 10,
+      "id": 110,
       "name": "Hành lá",
       "countPay": 100,
       "price": 50000,
@@ -281,7 +281,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 17,
+      "id": 16,
       "name": "Táo xanh Mỹ",
       "price": 50000,
       "countPay": 100,
@@ -332,7 +332,7 @@
       "country": "viet Nam"
     },
     {
-      "id": 8,
+      "id": 118,
       "name": "Táo đỏ Mỹ",
       "price": 125000,
       "countPay": 100,
@@ -377,18 +377,157 @@
   ],
   "users": [
     {
-      "id": "1",
-      "name": "Phạm Ngọc Thảo",
-      "password": "ngocthao98",
-      "cart": [],
-      "oder": [],
-      "userName": "phamthao",
-      "gender": "nu",
-      "email": "phamthao.hd@gmail.com",
-      "address": "kinh môn hải dương",
-      "phone": "0867585510",
-      "dateCreate": "2013-02-04T10:35:24-08:00",
-      "dateUpdate": "2013-02-04T10:35:24-08:00"
+      "user": {
+        "user": {
+          "id": "1",
+          "name": "Phạm Ngọc Thảo",
+          "password": "ngocthao98",
+          "cart": [
+            {
+              "id": 23,
+              "name": "Nấm đùi gà",
+              "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
+              "price": 150000,
+              "countPay": 100,
+              "count": 1
+            },
+            {
+              "id": 6,
+              "name": "Táo xanh Mỹ",
+              "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+              "price": 50000,
+              "countPay": 100,
+              "count": 1
+            },
+            {
+              "id": 110,
+              "name": "Hành lá",
+              "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+              "price": 50000,
+              "countPay": 100,
+              "count": 1
+            }
+          ],
+          "oder": [],
+          "userName": "phamthao",
+          "gender": "nu",
+          "email": "phamthao.hd@gmail.com",
+          "address": "kinh môn hải dương",
+          "phone": "0867585510",
+          "dateCreate": "2013-02-04T10:35:24-08:00",
+          "dateUpdate": "2013-02-04T10:35:24-08:00"
+        },
+        "cart": [
+          {
+            "id": 110,
+            "name": "Hành lá",
+            "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+            "price": 50000,
+            "countPay": 100,
+            "count": 2
+          },
+          {
+            "id": 16,
+            "name": "Táo xanh Mỹ",
+            "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+            "price": 50000,
+            "countPay": 100,
+            "count": 2
+          },
+          {
+            "id": 6,
+            "name": "Táo xanh Mỹ",
+            "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+            "price": 50000,
+            "countPay": 100,
+            "count": 2
+          },
+          {
+            "id": 118,
+            "name": "Táo đỏ Mỹ",
+            "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+            "price": 125000,
+            "countPay": 100,
+            "count": 1
+          }
+        ],
+        "id": "1"
+      },
+      "cart": [
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 110,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 16,
+          "name": "Táo xanh Mỹ",
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 118,
+          "name": "Táo đỏ Mỹ",
+          "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+          "price": 125000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 7,
+          "name": "Táo đỏ Mỹ",
+          "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+          "price": 115000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 18,
+          "name": "Táo xanh Mỹ",
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 2,
+          "name": "Nấm hương khô",
+          "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
+          "price": 25000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 23,
+          "name": "Nấm đùi gà",
+          "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
+          "price": 150000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 22,
+          "name": "Nấm hương khô",
+          "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
+          "price": 25000,
+          "countPay": 100,
+          "count": 1
+        }
+      ],
+      "id": "1"
     },
     {
       "id": "2",

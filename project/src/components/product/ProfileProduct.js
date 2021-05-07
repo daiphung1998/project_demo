@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import productApi from '../../api/productApi'
 import './ProfileProduct.scss'
-import {addCartByProfile as addCartByProfileAction} from '../../redux/actions/userAction'
+import {addCartByProfile as addCartByProfileAction, getUser} from '../../redux/actions/userAction'
 import {
   // decrementCountPayProfile,
   setEvaluate as setEvaluateAction
 } from "./../../redux/actions/products";
 import { Tabs, Rate, Modal, Button, notification } from 'antd';
+import userApi from '../../api/userApi'
 
 const { TabPane } = Tabs;
 const openNotification = (item) => {
@@ -58,7 +59,7 @@ const ProfileProduct = () => {
   }
 
   const decrement = () => {
-    if (number - 1 === 0 ) {
+    if (number - 1 <= 0 ) {
       setNumber(1)
     } else {
       setNumber(number - 1)
@@ -67,6 +68,7 @@ const ProfileProduct = () => {
 
   const getNumberInput = e => {
     const value = e.target.value
+
     if (value > product[0].countPay) {
       setNumber(product[0].countPay)
     } else {
@@ -74,12 +76,20 @@ const ProfileProduct = () => {
     }
   }
 
-  const buyProduct = () => {
+  const buyProduct = async () => {
     const data = {
       product: product[0],
       number: number
     }
-    dispatch(addCartByProfileAction(data))
+    await dispatch(addCartByProfileAction(data))
+    try {
+      const response = await userApi.getUser()
+      setTimeout(() => {
+        dispatch(getUser(response))
+      }, 500);
+    } catch (error) {
+      console.log(error);
+    }
     // dispatch(decrementCountPayProfile(data))
     setNumber(1)
     openNotification(product[0])
@@ -189,10 +199,10 @@ const ProfileProduct = () => {
                   : ''
                 }
               </span>
-              <span className={user.id === undefined ? "evaluateDisable" :  "evaluate" }>
+              <span className={ user && (user.id === undefined ? "evaluateDisable" :  "evaluate" )}>
 
-                <button onClick={showModal} disabled={user.id === undefined ? true : false}>Đánh giá sản phẩm</button>
-                <span style={{display: user.id === undefined ? 'block' : 'none'}}>( Đằng nhập để gửi đánh giá của bạn )</span>
+                <button onClick={showModal} disabled={user && (user.id === undefined ? true : false)}>Đánh giá sản phẩm</button>
+                <span style={{display: user && (user.id === undefined ? 'block' : 'none')}}>( Đằng nhập để gửi đánh giá của bạn )</span>
               </span>
               <div className="fromEvaluate">
                 <Modal
