@@ -17,18 +17,11 @@ const openNotification = (item) => {
 const CardItem = ({item}) => {
   const dispatch = useDispatch()
   const addToCart = async () => {
-    dispatch(addCartAction(item))
-    try {
-      const response = await userApi.getUser()
-      await setTimeout(() => {
-        dispatch(getUser(response))
-      }, 100);
-    } catch (error) {
-      console.log(error);
-    }
-
+    await dispatch(addCartAction(item))
+    setTimeout(() => {
+      openNotification(item)
+    }, 500);
     // dispatch(decrementCountPayAction(item))
-    openNotification(item)
   }
   return (
     <>

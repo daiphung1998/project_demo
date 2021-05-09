@@ -209,6 +209,7 @@ const Cart = () => {
     // selectedRowKeys.forEach(item => {
     //   newArr.push(listProduct[item - 1].id)
     // })
+    console.log(selectedRowKeys);
     setLoading(true)
     dispatch(deleteListItemCartAction(selectedRowKeys))
     setTimeout(() => {

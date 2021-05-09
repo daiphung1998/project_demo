@@ -61,9 +61,10 @@ const Header = () => {
               <i className="fas fa-shopping-cart">
                 {
                   myUser && (
-                  <Badge count={myUser.cart.length} overflowCount={50}>
-                    <a href="#" className="head-example" />
-                  </Badge>
+                    <span>{myUser.cart ? myUser.cart.length : 0}</span>
+                  // <Badge count={myUser.cart ? myUser.cart.length : 0} overflowCount={50}>
+                  //   <a href="#" className="head-example" />
+                  // </Badge>
                   )
                 }
               </i>

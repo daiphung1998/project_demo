@@ -41,12 +41,11 @@ const useReducer  = (state = initialState, action) => {
 
     case ADD_CART: {
       let cartAction = user.cart
-      let newData = {}
       let newUser = {}
       if (cartAction.length >= 0) {
         const index = cartAction.findIndex(item => item.id === action.payload.id)
         if (index !== -1) {
-          newData = {
+          const newData = {
             ...cartAction[index],
             count: cartAction[index].count + 1,
           }
@@ -58,12 +57,8 @@ const useReducer  = (state = initialState, action) => {
           }
 
           userApi.addCart(user.id, newUser)
-          return {
-            ...state,
-            user: newUser
-          }
         } else {
-          newData = {
+          const newData = {
             id: action.payload.id,
             name: action.payload.name,
             img: action.payload.img,
@@ -78,11 +73,27 @@ const useReducer  = (state = initialState, action) => {
           }
 
           userApi.addCart(user.id, newUser)
-          return {
-            ...state,
-            user: newUser
-          }
         }
+      } else {
+        const newData = {
+          id: action.payload.id,
+          name: action.payload.name,
+          img: action.payload.img,
+          price: action.payload.price,
+          countPay: action.payload.countPay,
+          count: 1,
+        }
+        cartAction.push(newData)
+        newUser = {
+          ...user,
+          cart: cartAction
+        }
+
+        userApi.addCart(user.id, newUser)
+      }
+      return {
+        ...state,
+        user: newUser
       }
     }
     /* falls through */
