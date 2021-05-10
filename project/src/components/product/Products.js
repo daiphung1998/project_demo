@@ -6,13 +6,14 @@ import Sort from './sort/Sort'
 import './products.scss'
 import CardItem from './CardItem'
 import { Link } from 'react-router-dom'
-
+import JwPagination from 'jw-react-pagination';
+import MyPagination from './MyPagination'
 
 const Products = ({typeID}) => {
   const [products, setProducts] = useState([])
   const [listSort, setListSort] = useState([])
   const [current, setCurrent] = useState(1)
-  const [pageSize, setPageSize] = useState(5)
+  const [pageSize, setPageSize] = useState(2)
   const [listProductPage, setListProductPage] = useState([])
 
 
@@ -35,20 +36,22 @@ const Products = ({typeID}) => {
     } catch (error) {
       console.log(error);
     }
+
   }
 
-  useEffect(() => {
+  useEffect( async () => {
     fetchProducts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // useEffect(() => {
+  // const page = () => {
   //   for (let i = 0; i < current * pageSize; i++) {
   //     listProductPage.push(listSort[i])
+  //     console.log(listSort[i]);
   //   }
   //   console.log(listSort);
   //   console.log(listProductPage);
-  // }, [current])
+  // }
 
   const searchByPrice1 = value => {
     const newArr = products.filter(item => (item.price >= value.item.price1 && item.price <= value.item.price2))
@@ -105,11 +108,16 @@ const Products = ({typeID}) => {
   const onShowSizeChange = (current, pageSize) => {
     setPageSize(pageSize)
     setCurrent(1)
+    console.log(current, pageSize);
   }
   const onShowCurrentChange = (current) => {
     setCurrent(current)
+    console.log(current);
   }
 
+  // const onChangePage = (pageOfItems) => {
+  //   setListProductPage(pageOfItems)
+  // }
   return (
     <div className="products">
 
@@ -141,24 +149,26 @@ const Products = ({typeID}) => {
 
           <div className="row">
             <div className="col-12">
-              <Pagination
-                // showSizeChanger
+              {/* <Pagination
+                showSizeChanger
                 onShowSizeChange={onShowSizeChange}
                 onChange = {onShowCurrentChange}
                 defaultPageSize={pageSize}
                 defaultCurrent={current}
                 total={listSort.length}
-              />
+              /> */}
+              {/* <JwPagination items={listSort} onChangePage={onChangePage} /> */}
+              <MyPagination listSort={listSort}/>
             </div>
-            {
-              listSort.map((item, index) => {
+            {/* {
+              listProductPage.map((item, index) => {
                 return (
                   <div className="col-sm-12 col-lg-4 item"  key={index}>
                     <CardItem item={item} />
                   </div>
                   )
                 })
-            }
+            } */}
           </div>
         </div>
       </div>

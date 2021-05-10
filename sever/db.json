@@ -212,57 +212,6 @@
   ],
   "users": [
     {
-      "user": {
-        "id": "1",
-        "name": "Phạm Ngọc Thảo",
-        "password": "ngocthao98",
-        "cart": [
-          {
-            "id": 5,
-            "name": "Hành lá",
-            "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
-            "price": 50000,
-            "countPay": 100,
-            "count": 2
-          },
-          {
-            "id": 18,
-            "name": "Táo xanh Mỹ",
-            "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
-            "price": 50000,
-            "countPay": 100,
-            "count": 2
-          },
-          {
-            "id": 6,
-            "name": "Táo xanh Mỹ",
-            "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
-            "price": 50000,
-            "countPay": 100,
-            "count": 2
-          },
-          {
-            "id": 118,
-            "name": "Táo đỏ Mỹ",
-            "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
-            "price": 125000,
-            "countPay": 100,
-            "count": 1
-          }
-        ],
-        "oder": [],
-        "userName": "phamthao",
-        "gender": "nu",
-        "email": "phamthao.hd@gmail.com",
-        "address": "kinh môn hải dương",
-        "phone": "0867585510",
-        "dateCreate": "2013-02-04T10:35:24-08:00",
-        "dateUpdate": "2013-02-04T10:35:24-08:00"
-      },
-      "cart": [],
-      "id": "1"
-    },
-    {
       "id": "2",
       "name": "Phùng Thế Đại",
       "password": "daiphung1998",
@@ -291,90 +240,6 @@
       "dateUpdate": "2013-02-05T10:35:24-08:00"
     },
     {
-      "id": "6",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2014-02-05T10:35:24-08:00",
-      "dateUpdate": "2015-03-04T10:35:24-08:00"
-    },
-    {
-      "id": "7",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2018-05-04T10:35:24-08:00",
-      "dateUpdate": "2019-06-04T10:35:24-08:00"
-    },
-    {
-      "id": "8",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2011-02-04T10:35:24-08:00",
-      "dateUpdate": "2011-02-04T10:35:24-08:00"
-    },
-    {
-      "id": "9",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2016-02-01T10:35:24-09:00",
-      "dateUpdate": "2016-02-08T10:35:24-07:00"
-    },
-    {
-      "id": "10",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2019-02-04T10:35:24-08:00",
-      "dateUpdate": "20139-03-04T10:35:24-09:00"
-    },
-    {
-      "id": "11",
-      "name": " Đại",
-      "password": "sadsadsad",
-      "cart": [],
-      "oder": [],
-      "userName": "sdad",
-      "gender": "nam",
-      "email": "ádadada.hd@gmail.com",
-      "address": "ádasdkhánh, Hoài đức, Hà Nội",
-      "phone": "0963310336",
-      "dateCreate": "2013-08-04T10:35:24-08:00",
-      "dateUpdate": "2016-07-04T10:35:24-09:00"
-    },
-    {
       "name": "Phạm Ngọc Thảo",
       "email": "daiphung.hd@gmail.com",
       "userName": "daiphung",
@@ -389,28 +254,18 @@
       "gender": "0",
       "dateUpdate": "2021-04-29T14:30:46+07:00",
       "dateCreate": "2021-04-29T14:30:46+07:00",
-      "cart": [],
-      "oder": [],
-      "id": "Y9xJoFJ"
-    },
-    {
-      "name": "rggd",
-      "email": "daiphung.hd@gmail.com",
-      "userName": "daiphung",
-      "password": "1",
-      "confirm": "1",
-      "phone": "1",
-      "address": [
-        "haiduong",
-        "kinhmon",
-        "anphu"
+      "cart": [
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 14
+        }
       ],
-      "gender": "0",
-      "dateUpdate": "2021-04-29T14:32:33+07:00",
-      "dateCreate": "2021-04-29T14:32:33+07:00",
-      "cart": [],
       "oder": [],
-      "id": "BvoQgXB"
+      "id": "1"
     }
   ],
   "oders": []

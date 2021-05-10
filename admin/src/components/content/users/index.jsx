@@ -6,6 +6,7 @@ import './style.scss';
 import MyTable from './table'
 
 const { Option } = Select;
+
 const Content = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.users.listUser)

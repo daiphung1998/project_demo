@@ -67,8 +67,12 @@ const ProfileProduct = () => {
   }
 
   const getNumberInput = e => {
-    const value = e.target.value
+    const { value } = e.target
 
+    if(isNaN(value) || value === "" || value < 0) {
+      setNumber(1)
+      return
+    }
     if (value > product[0].countPay) {
       setNumber(product[0].countPay)
     } else {

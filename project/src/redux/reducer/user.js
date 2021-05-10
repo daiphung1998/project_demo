@@ -132,6 +132,8 @@ const useReducer  = (state = initialState, action) => {
         }
     }
 
+
+
     case INCREMENT_PROJECT:{
       const index = cart.findIndex(item => item.id === action.payload)
         if (index !== -1) {
@@ -169,24 +171,24 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case NUMBER_INPUT: {
-      if(isNaN(action.payload.value)|| action.payload.value < 0) {
-        const index = cart.findIndex(item => item.id === action.payload.id)
-          if (index !== -1) {
-            cart[index].count = 1
+      const index = cart.findIndex(item => item.id === action.payload.id)
+      if(isNaN(action.payload.value) || action.payload.value <= 0) {
+
+          cart[index].count = 1
+
+          userApi.addCart(user.id, user)
+          return {
+            ...state,
+            user: user
           }
-        return {
-          ...state,
-          user: user
-        }
       } else {
-        const index = cart.findIndex(item => item.id === action.payload.id)
-          if (index !== -1) {
-            if (Number(action.payload.value) > cart[index].countPay) {
-              cart[index].count = cart[index].countPay
-            } else {
-              cart[index].count = Number(action.payload.value)
-            }
-          }
+        if (Number(action.payload.value) > cart[index].countPay) {
+          cart[index].count = cart[index].countPay
+        } else {
+          cart[index].count = Number(action.payload.value)
+        }
+
+        userApi.addCart(user.id, user)
         return {
           ...state,
           user: user

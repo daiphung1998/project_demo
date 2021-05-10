@@ -32,7 +32,7 @@ const Cart = () => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [loading, setLoading] = useState(false)
-  const [number, setNumber] = useState(1)
+  //const [number, setNumber] = useState(1)
   const [visible, setVisible] = useState(false)
   const [totalMoney, setTotalMoney] = useState(0)
 
@@ -86,12 +86,13 @@ const Cart = () => {
               onClick={() => decrement(record.id)}
               disabled = {record.count === 1  ? true : false}
             >-</button>
-              <input
-                type="text" value={text}
+              {/* <input
+                type="text" value={record.count}
                 id={record.id}
                 onChange={getNumberInput}
                 // onClick={getValue}
-              />
+              /> */}
+              <input type="text" value={text} onChange={getNumberInput} id={record.id}/>
             <button
               className="cart__box-text--plus"
               onClick={() => increment(record.id)}
@@ -168,23 +169,40 @@ const Cart = () => {
   }
 
   const getNumberInput = (event) => {
-    const index = listProduct.findIndex(item => item.id === Number(event.target.id))
-    let a = 0
-    if ( event.target.value === "" || isNaN(event.target.value)) {
-      setNumber(0)
-    }else {
-      a = event.target.value
-      if (event.target.value > listProduct[index].countPay) {
-        a = listProduct[index].countPay
-      }
-      setNumber(a)
+    const { value, id } = event.target
+    //const index = listProduct.findIndex(item => item.id === Number(event.target.id))
+    // let a = 0
+    // if ( event.target.value === "" || isNaN(event.target.value)) {
+    //   setNumber(1)
+    // }else {
+    //   a = event.target.value
+    //   if (event.target.value > listProduct[index].countPay) {
+    //     a = listProduct[index].countPay
+    //   }
+    //   setNumber(a)
+    // }
+    const newNumber = {
+      value: value,
+      id: Number(id)
     }
 
-    const newNumber = {
-      value: a,
-      numberCurrent: Number(number),
-      id: Number(event.target.id)
-    }
+    // const [...newData] = products
+
+    //  const abc =   newData.map(item => {
+    //   if (item.id === Number(id)) {
+    //     return {
+    //       ...item,
+    //       count: Number(value)
+    //     }
+    //   }
+
+    //   return item
+    // })
+
+    // setProducts(abc)
+    // console.log('asdasdas', abc);
+
+
     dispatch(numberInputProjectAction(newNumber))
     // dispatch(onchangeInputPayByCartAction(newNumber))
   }
