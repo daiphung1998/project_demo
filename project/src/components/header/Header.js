@@ -36,15 +36,23 @@ const Header = () => {
                       myUser.img ? <img src={myUser.img} alt="abc"/> : <i className="fas fa-user" />
                     }
                     <div className="login__listchose">
+
                       <Menu onClick={handleMenuClick}>
+
                         <Menu.Item key="1" icon={<UserOutlined />}>
-                          thông tin cá nhân
+                          <Link to='/login'>
+                            thông tin cá nhân
+                          </Link>
                         </Menu.Item>
                         <Menu.Item key="2" icon={<UserOutlined />}>
-                          đơn hàng
+                          <Link to='/login'>
+                            đơn hàng
+                          </Link>
                         </Menu.Item>
                         <Menu.Item key="3" icon={<UserOutlined />}>
-                          logout
+                          <Link to='/login'>
+                            logout
+                          </Link>
                         </Menu.Item>
                       </Menu>
                     </div>

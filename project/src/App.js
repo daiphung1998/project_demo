@@ -17,6 +17,7 @@ import {getProduct as getProductAction} from './redux/actions/products'
 import {getUser as getUserAction} from './redux/actions/userAction';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ScrollToTop from './ScrollToTop';
 
 const style = {
   height: 40,
@@ -45,9 +46,11 @@ const App = () => {
     fetchProducts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   return (
     <>
       <Router>
+      <ScrollToTop/>
       <Header/>
         <Row>
           <Col span={24} className="menu">
