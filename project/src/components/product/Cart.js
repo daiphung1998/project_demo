@@ -22,10 +22,13 @@ import userApi from '../../api/userApi'
 
 const Cart = () => {
   const dispatch = useDispatch()
-  const [form] = Form.useForm();
-  const user = useSelector(store => store.userReducer.user)
 
-  const listProduct = useSelector(store => store.productReducer)
+  const [form] = Form.useForm();
+
+  //const typingTimeoutRef = useRef(null);
+
+  const user = useSelector(store => store.userReducer.user)
+  //const listProduct = useSelector(store => store.productReducer)
   const dataProducts =  useSelector(store => store.userReducer.user.cart)
 
   const [products, setProducts] = useState(dataProducts)
@@ -35,6 +38,7 @@ const Cart = () => {
   //const [number, setNumber] = useState(1)
   const [visible, setVisible] = useState(false)
   const [totalMoney, setTotalMoney] = useState(0)
+
 
 
   useEffect(() => {
@@ -70,7 +74,7 @@ const Cart = () => {
       render: text => {
         return (
           <div className = "cart__box-text">
-            <p>{text} VND</p>
+            <p>{text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</p>
           </div>
         )
       }
@@ -119,7 +123,7 @@ const Cart = () => {
       render: (text, record) => {
         return (
           <div className = "cart__box-text">
-            <p>{record.price * record.count} VND</p>
+            <p>{(record.price * record.count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</p>
           </div>
         )
       }
@@ -129,28 +133,40 @@ const Cart = () => {
       dataIndex: 'delete',
       render: (text, record) => {
         return (
-          <>
-            <Button danger onClick={() => deleteItem(record.id)}>Xoá</Button>
-          </>
+          <div className = "cart__box--delete">
+            <Button
+              danger
+              onClick={() => deleteItem(record.id)}
+            >
+              Xoá
+            </Button>
+            <div id={`${record.id}delete`}></div>
+          </div>
         )
       }
     },
   ];
 
-
-
-
-  const onSelectChange = selectedRowKeys => {
-    setSelectedRowKeys(selectedRowKeys);
+  const onSelectChange = async (selectedRowKeys) => {
+    await setSelectedRowKeys(selectedRowKeys);
     let price = 0
-    products.forEach(item => {
-      selectedRowKeys.forEach(elem => {
-        if (elem === item.id) {
-          price = price + (item.count * item.price)
-        }
-      })
+    selectedRowKeys.forEach(item => {
+      const index = dataProducts.findIndex(elem => elem.id === item)
+      price = price + (dataProducts[index].count * dataProducts[index].price)
     })
     setTotalMoney(price)
+
+    dataProducts.forEach(item => {
+      const index = selectedRowKeys.findIndex(elem => elem === item.id)
+      const buttonDelete = document.getElementById(`${item.id}delete`)
+      if (index !== -1) {
+        buttonDelete.classList.add("overlay");
+      } else {
+        buttonDelete.classList.remove("overlay");
+      }
+    })
+
+
   };
 
   const rowSelection = {
@@ -168,6 +184,7 @@ const Cart = () => {
     }
   }
 
+
   const getNumberInput = (event) => {
     const { value, id } = event.target
     //const index = listProduct.findIndex(item => item.id === Number(event.target.id))
@@ -181,40 +198,58 @@ const Cart = () => {
     //   }
     //   setNumber(a)
     // }
+
+    const [...newData] = products
+
+     const abc =   newData.map(item => {
+      if (item.id === Number(id)) {
+        return {
+          ...item,
+          count: Number(value)
+        }
+      }
+
+      return item
+    })
+
+    // let price = 0
+    // selectedRowKeys.forEach(item => {
+    //   const index = dataProducts.findIndex(elem => elem.id === item)
+    //   price = price + (dataProducts[index].count * dataProducts[index].price)
+    // })
+    // setTotalMoney(price)
+
+
+    setProducts(abc)
+
+
     const newNumber = {
       value: value,
       id: Number(id)
     }
 
-    // const [...newData] = products
-
-    //  const abc =   newData.map(item => {
-    //   if (item.id === Number(id)) {
-    //     return {
-    //       ...item,
-    //       count: Number(value)
-    //     }
-    //   }
-
-    //   return item
-    // })
-
-    // setProducts(abc)
-    // console.log('asdasdas', abc);
-
-
-    dispatch(numberInputProjectAction(newNumber))
+    setTimeout(() => {
+      dispatch(numberInputProjectAction(newNumber))
+    }, 100);
     // dispatch(onchangeInputPayByCartAction(newNumber))
   }
 
+  const sumOfMoney = () => {
+    let price = 0
+    selectedRowKeys.forEach(item => {
+      const index = dataProducts.findIndex(elem => elem.id === item)
+      price = price + (dataProducts[index].count * dataProducts[index].price)
+    })
+    setTotalMoney(price)
+  }
   const increment = (id) => {
      dispatch(incrementProjectAction(id))
-
+     sumOfMoney()
   }
 
   const decrement = (id) => {
     dispatch(decrementProjectAction(id))
-
+    sumOfMoney()
   }
 
   const deleteItem = (id) => {
@@ -236,6 +271,7 @@ const Cart = () => {
     }, 500);
   };
 
+  //pay cart no user
   const onFinish = values => {
     console.log(values);
     if (values.username !== undefined && values.phone !== undefined && values.email !== undefined && values.address !== undefined) {
@@ -261,7 +297,7 @@ const Cart = () => {
     }
   };
 
-
+  // pay cart user
   const PayCart = () => {
     if (user.id) {
       const listPayCart = []
@@ -284,18 +320,11 @@ const Cart = () => {
     }
   };
 
-  // const handleOk = () => {
-  //   setVisible(false)
-  // };
-
-  // const handleCancel = () => {
-  //   setVisible(false)
-  // };
-
   const onReset = () => {
     form.resetFields();
     setVisible(false)
   };
+
   const hasSelected = selectedRowKeys.length > 0;
 
   return (
@@ -306,7 +335,7 @@ const Cart = () => {
         columns={columns}
         dataSource={products}
       />
-      <h2>Tổng tiền: <span>{totalMoney}</span> VND</h2>
+      <h2>Tổng tiền: <span>{totalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> VND</h2>
       <div className="cart__button">
         <Button
           type="primary"
