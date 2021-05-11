@@ -9,8 +9,8 @@ import userApi from '../../api/userApi'
 const openNotification = (item) => {
   notification.open({
     message: '',
-    description:`Bạn đã thêm thành công một sản phẩm ${item.name} vào giỏ hàng`,
-    icon: <i className="fad fa-alicorn" style={{fontSize: "40px", color: '#fe9705'}}></i>,
+    description:<span>Bạn đã thêm thành công một sản phẩm <b>{item.name}</b> vào giỏ hàng</span>,
+    icon: <i class="fab fa-optin-monster" style={{fontSize: "50px", color: '#fe9705'}}></i>,
   });
 };
 
@@ -30,6 +30,9 @@ const CardItem = ({item}) => {
         hoverable
         cover={<img alt="example" src={item.img}/>}
       >
+        {
+          item.sale > 0 && (<div className="item__card__sale">{item.sale}%</div>)
+        }
         <p>{item.name}</p>
         <h3>{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</h3>
         <Link to={`/products/${item.id}`}>

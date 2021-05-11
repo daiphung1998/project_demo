@@ -10,6 +10,7 @@ import userApi from '../../api/userApi'
 const Header = () => {
   const myStore = useSelector(store => store.userReducer.user)
   const [myUser, setMyUser] = useState(myStore)
+  const [keyActive, setKeyActive] = useState('')
 
   useEffect(() => {
     fetchUser()
@@ -22,6 +23,11 @@ const Header = () => {
   const handleMenuClick = (e) => {
     message.info('Click menu');
     console.log('click', e);
+  }
+
+  const onActive = (key) => {
+    setKeyActive(key)
+    console.log(key);
   }
   return (
     <div className="header">
@@ -37,8 +43,7 @@ const Header = () => {
                     }
                     <div className="login__listchose">
 
-                      <Menu onClick={handleMenuClick}>
-
+                      {/* <Menu onClick={handleMenuClick}>
                         <Menu.Item key="1" icon={<UserOutlined />}>
                           <Link to='/login'>
                             thông tin cá nhân
@@ -54,7 +59,28 @@ const Header = () => {
                             logout
                           </Link>
                         </Menu.Item>
-                      </Menu>
+                      </Menu> */}
+                      <ul>
+                        <Link to='/login'>
+                          <li onClick={() => onActive(1)}
+                            style={{backgroundColor: keyActive === 1 ? '#ccc' : ''}}
+                          >
+                            <i className="fas fa-user-tie"> thông tin cá nhân</i>
+                          </li>
+                        </Link>
+
+                        <Link to='/login'>
+                          <li onClick={() => onActive(2)} style={{backgroundColor: keyActive === 2 ? '#ccc' : ''}}>
+                            đơn hàng
+                          </li>
+                        </Link>
+
+                        <Link to='/login'>
+                          <li onClick={() => onActive(3)} style={{backgroundColor: keyActive === 3 ? '#ccc' : ''}}>
+                            <i className="fas fa-sign-out-alt"> logout</i>
+                          </li>
+                        </Link>
+                      </ul>
                     </div>
                   </div>
                 ) : <Link to='/login'>Đăng Nhập</Link>
@@ -66,14 +92,10 @@ const Header = () => {
           </Col>
           <Col span={5} className="cart">
             <Link to="/cart">
-              <i className="fas fa-shopping-cart">
+
+            <i className="fab fa-opencart">
                 {
-                  myUser && (
-                    <span>{myUser.cart ? myUser.cart.length : 0}</span>
-                  // <Badge count={myUser.cart ? myUser.cart.length : 0} overflowCount={50}>
-                  //   <a href="#" className="head-example" />
-                  // </Badge>
-                  )
+                  myUser && (<span>{myUser.cart ? myUser.cart.length : 0}</span>)
                 }
               </i>
             </Link>

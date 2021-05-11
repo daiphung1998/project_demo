@@ -22,6 +22,7 @@
       "id": 1,
       "name": "Hành",
       "price": 50000,
+      "sale": 20,
       "countPay": 0,
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/hanh-kho.jpg?v=1539588166193",
       "typeID": "cu",
@@ -55,6 +56,7 @@
       "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
       "typeID": "nam",
       "species": "kho",
+      "sale": 20,
       "comments": {},
       "evaluates": [
         {
@@ -86,6 +88,7 @@
       "name": "Khoai Lang",
       "countPay": 0,
       "price": 250000,
+      "sale": 20,
       "img": "https://sieuthiandam.com/wp-content/uploads/2018/03/0001895-khoai-lang-600x600-600x600.jpg",
       "typeID": "cu",
       "species": "tuoi",
@@ -103,6 +106,7 @@
       "name": "Hành lá",
       "countPay": 100,
       "price": 50000,
+      "sale": 20,
       "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
       "typeID": "rau",
       "species": "tuoi",
@@ -119,6 +123,7 @@
       "id": 6,
       "name": "Táo xanh Mỹ",
       "price": 50000,
+      "sale": 0,
       "countPay": 100,
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
@@ -136,6 +141,7 @@
       "id": 18,
       "name": "Táo xanh Mỹ",
       "price": 50000,
+      "sale": 0,
       "countPay": 100,
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
@@ -153,6 +159,7 @@
       "id": 7,
       "name": "Táo đỏ Mỹ",
       "price": 115000,
+      "sale": 20,
       "countPay": 100,
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
@@ -170,6 +177,7 @@
       "id": 118,
       "name": "Táo đỏ Mỹ",
       "price": 125000,
+      "sale": 0,
       "countPay": 100,
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
@@ -240,47 +248,67 @@
       "dateUpdate": "2013-02-05T10:35:24-08:00"
     },
     {
-      "name": "Phạm Ngọc Thảo",
-      "email": "daiphung.hd@gmail.com",
-      "userName": "daiphung",
-      "password": "123",
-      "confirm": "123",
-      "phone": "0963310336",
-      "address": [
-        "haiduong",
-        "kinhmon",
-        "anphu"
-      ],
-      "gender": "0",
-      "dateUpdate": "2021-04-29T14:30:46+07:00",
-      "dateCreate": "2021-04-29T14:30:46+07:00",
-      "cart": [
-        {
-          "id": 6,
-          "name": "Táo xanh Mỹ",
-          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
-          "price": 50000,
-          "countPay": 100,
-          "count": 2
-        },
-        {
-          "id": 3,
-          "name": "Nấm đùi gà",
-          "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
-          "price": 150000,
-          "countPay": 100,
-          "count": 12
-        },
-        {
-          "id": 2,
-          "name": "Nấm hương khô",
-          "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
-          "price": 25000,
-          "countPay": 100,
-          "count": 100
-        }
-      ],
-      "oder": [],
+      "user": {
+        "name": "Phạm Ngọc Thảo",
+        "email": "daiphung.hd@gmail.com",
+        "userName": "daiphung",
+        "password": "123",
+        "confirm": "123",
+        "phone": "0963310336",
+        "address": [
+          "haiduong",
+          "kinhmon",
+          "anphu"
+        ],
+        "gender": "0",
+        "dateUpdate": "2021-04-29T14:30:46+07:00",
+        "dateCreate": "2021-04-29T14:30:46+07:00",
+        "cart": [
+          {
+            "id": 6,
+            "name": "Táo xanh Mỹ",
+            "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+            "price": 50000,
+            "countPay": 100,
+            "count": 8
+          },
+          {
+            "id": 3,
+            "name": "Nấm đùi gà",
+            "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
+            "price": 150000,
+            "countPay": 100,
+            "count": 12
+          },
+          {
+            "id": 2,
+            "name": "Nấm hương khô",
+            "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
+            "price": 25000,
+            "countPay": 100,
+            "count": 100
+          },
+          {
+            "id": 5,
+            "name": "Hành lá",
+            "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+            "price": 50000,
+            "countPay": 100,
+            "count": 6
+          },
+          {
+            "id": 118,
+            "name": "Táo đỏ Mỹ",
+            "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+            "price": 125000,
+            "countPay": 100,
+            "count": 4
+          }
+        ],
+        "oder": [],
+        "id": "1"
+      },
+      "cart": [],
       "id": "1"
     }
   ],
