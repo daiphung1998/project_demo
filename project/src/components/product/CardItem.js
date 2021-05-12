@@ -3,7 +3,8 @@ import { Card, notification } from 'antd'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addCart as addCartAction, getUser} from '../../redux/actions/userAction'
-import userApi from '../../api/userApi'
+
+//import userApi from '../../api/userApi'
 // import { decrementCountPay as decrementCountPayAction } from '../../redux/actions/products'
 
 const openNotification = (item) => {
@@ -33,8 +34,15 @@ const CardItem = ({item}) => {
         {
           item.sale > 0 && (<div className="item__card__sale">{item.sale}%</div>)
         }
-        <p>{item.name}</p>
-        <h3>{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</h3>
+        <h3>{item.name}</h3>
+        <div className="item__card__groupPrice">
+          {
+            item.sale > 0 && (
+              <span className="item__card--priceSale">{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
+            )
+          }
+          <span className="item__card--price">{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
+        </div>
         <Link to={`/products/${item.id}`}>
           <button className="item__card--seeMore">Xem thêm</button>
         </Link>

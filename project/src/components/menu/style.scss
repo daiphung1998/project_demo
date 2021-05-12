@@ -9,7 +9,7 @@ $Green: #80bb35;
   text-align: center;
   line-height: 35px;
   margin: auto;
-  padding: 0px 10%;
+  padding: 0px 2%;
   background-color: $Green;
   z-index: 999;
   a {
@@ -57,6 +57,28 @@ $Green: #80bb35;
     display: block;
     animation-duration: 0.5s;
     z-index: 10;
+  }
+  .cart {
+    font-size: 20px;
+    font-weight: 200;
+    text-align: right;
+    margin: 10px 40px 0px 0px;
+    i {
+      font-size: 40px;
+      position: relative;
+      color: #fe9705;
+
+      span {
+        position: absolute;
+        background: #fff;
+        padding: 2px 7px;
+        color: #000;
+        font-size: 20px;
+        border-radius: 50px;
+        top: -20%;
+        right: -30%;
+      }
+    }
   }
 
 }

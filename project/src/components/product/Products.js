@@ -44,15 +44,6 @@ const Products = ({typeID}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // const page = () => {
-  //   for (let i = 0; i < current * pageSize; i++) {
-  //     listProductPage.push(listSort[i])
-  //     console.log(listSort[i]);
-  //   }
-  //   console.log(listSort);
-  //   console.log(listProductPage);
-  // }
-
   const searchByPrice1 = value => {
     const newArr = products.filter(item => (item.price >= value.item.price1 && item.price <= value.item.price2))
     setListSort(newArr)
@@ -105,19 +96,6 @@ const Products = ({typeID}) => {
     }
   }
 
-  const onShowSizeChange = (current, pageSize) => {
-    setPageSize(pageSize)
-    setCurrent(1)
-    console.log(current, pageSize);
-  }
-  const onShowCurrentChange = (current) => {
-    setCurrent(current)
-    console.log(current);
-  }
-
-  // const onChangePage = (pageOfItems) => {
-  //   setListProductPage(pageOfItems)
-  // }
   return (
     <div className="products">
 
@@ -140,7 +118,6 @@ const Products = ({typeID}) => {
             searchByPrice={searchByPrice1}
           />
         </div>
-
         <div className="col-lg-9">
 
           <div className="col-12 sort">
@@ -148,27 +125,7 @@ const Products = ({typeID}) => {
           </div>
 
           <div className="row">
-            <div className="col-12">
-              {/* <Pagination
-                showSizeChanger
-                onShowSizeChange={onShowSizeChange}
-                onChange = {onShowCurrentChange}
-                defaultPageSize={pageSize}
-                defaultCurrent={current}
-                total={listSort.length}
-              /> */}
-              {/* <JwPagination items={listSort} onChangePage={onChangePage} /> */}
-              <MyPagination listSort={listSort}/>
-            </div>
-            {/* {
-              listProductPage.map((item, index) => {
-                return (
-                  <div className="col-sm-12 col-lg-4 item"  key={index}>
-                    <CardItem item={item} />
-                  </div>
-                  )
-                })
-            } */}
+            <MyPagination listSort={listSort}/>
           </div>
         </div>
       </div>

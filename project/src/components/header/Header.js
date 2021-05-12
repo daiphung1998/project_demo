@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './style.scss'
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux'
-import { Row, Col, Menu, message, Badge } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Row, Col } from 'antd';
 import userApi from '../../api/userApi'
 
 
@@ -19,10 +18,6 @@ const Header = () => {
   const fetchUser = async () => {
     const response = await userApi.getUser()
     setMyUser(response)
-  }
-  const handleMenuClick = (e) => {
-    message.info('Click menu');
-    console.log('click', e);
   }
 
   const onActive = (key) => {
@@ -42,24 +37,6 @@ const Header = () => {
                       myUser.img ? <img src={myUser.img} alt="abc"/> : <i className="fas fa-user" />
                     }
                     <div className="login__listchose">
-
-                      {/* <Menu onClick={handleMenuClick}>
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                          <Link to='/login'>
-                            thông tin cá nhân
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item key="2" icon={<UserOutlined />}>
-                          <Link to='/login'>
-                            đơn hàng
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item key="3" icon={<UserOutlined />}>
-                          <Link to='/login'>
-                            logout
-                          </Link>
-                        </Menu.Item>
-                      </Menu> */}
                       <ul>
                         <Link to='/login'>
                           <li onClick={() => onActive(1)}
@@ -92,8 +69,7 @@ const Header = () => {
           </Col>
           <Col span={5} className="cart">
             <Link to="/cart">
-
-            <i className="fab fa-opencart">
+              <i className="fab fa-opencart">
                 {
                   myUser && (<span>{myUser.cart ? myUser.cart.length : 0}</span>)
                 }
