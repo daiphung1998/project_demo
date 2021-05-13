@@ -159,7 +159,14 @@ const ProfileProduct = () => {
                       <span className="status--OutOfStock"> <i className="fas fa-times"></i> Hết hàng</span>
                     )}
                     </p>
-                  <h2 className="price">{product[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</h2>
+                  <h2 className="price">
+                    {
+                      product[0].sale > 0 && (
+                        <span className="price__sale"> {product[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
+                      )
+                    }
+                    {(product[0].price - (product[0].price * product[0].sale / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    VND</h2>
                   <div className="nutrition">
                     giá trị dinh dưỡng
                   </div>

@@ -22,12 +22,12 @@
       "id": 1,
       "name": "Hành",
       "price": 50000,
-      "sale": 20,
+      "sale": 13,
       "countPay": 0,
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/hanh-kho.jpg?v=1539588166193",
       "typeID": "cu",
       "species": "kho",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 2,
@@ -56,8 +56,8 @@
       "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
       "typeID": "nam",
       "species": "kho",
-      "sale": 20,
-      "comments": {},
+      "sale": 3,
+      "comments": [],
       "evaluates": [
         {
           "id": 3,
@@ -71,10 +71,11 @@
       "name": "Nấm đùi gà",
       "countPay": 100,
       "price": 150000,
+      "sale": 0,
       "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
       "typeID": "nam",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 4,
@@ -88,11 +89,11 @@
       "name": "Khoai Lang",
       "countPay": 0,
       "price": 250000,
-      "sale": 20,
+      "sale": 5,
       "img": "https://sieuthiandam.com/wp-content/uploads/2018/03/0001895-khoai-lang-600x600-600x600.jpg",
       "typeID": "cu",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -106,11 +107,11 @@
       "name": "Hành lá",
       "countPay": 100,
       "price": 50000,
-      "sale": 20,
+      "sale": 11,
       "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
       "typeID": "rau",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -128,7 +129,7 @@
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -146,7 +147,7 @@
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -164,7 +165,7 @@
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -182,7 +183,7 @@
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "comments": {},
+      "comments": [],
       "evaluates": [
         {
           "id": 1,
@@ -222,10 +223,35 @@
     {
       "id": "2",
       "name": "Phùng Thế Đại",
-      "password": "daiphung1998",
-      "cart": [],
+      "password": "123",
+      "cart": [
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 5
+        },
+        {
+          "id": 6,
+          "name": "Táo xanh Mỹ",
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 1
+        },
+        {
+          "id": 18,
+          "name": "Táo xanh Mỹ",
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "price": 50000,
+          "countPay": 100,
+          "count": 3
+        }
+      ],
       "oder": [],
-      "userName": "daiphung",
+      "userName": "dai",
       "gender": "nam",
       "email": "daiphung.hd@gmail.com",
       "address": "18T1 theGolden An khánh, Hoài đức, Hà Nội",
@@ -308,16 +334,7 @@
         "oder": [],
         "id": "1"
       },
-      "cart": [
-        {
-          "id": 5,
-          "name": "Hành lá",
-          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
-          "price": 50000,
-          "countPay": 100,
-          "count": 1
-        }
-      ],
+      "cart": [],
       "id": "1"
     }
   ],

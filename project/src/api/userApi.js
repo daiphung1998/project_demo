@@ -2,7 +2,12 @@ import axiosClient from './axiosClient'
 
 const userApi = {
   getUser: () => {
-    const url = '/users/1'
+    const url = '/users'
+    return axiosClient.get(url)
+  },
+
+  getUserById: (id) => {
+    const url = `/users/${id}`
     return axiosClient.get(url)
   },
 

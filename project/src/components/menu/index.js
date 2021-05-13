@@ -15,7 +15,9 @@ const MyMenu = () => {
   const [isAffix, setIsAffix] = useState(false)
   const myStore = useSelector(store => store.userReducer.user)
   const [myUser, setMyUser] = useState(myStore)
+  console.log(myUser);
   const [keyActive, setKeyActive] = useState('')
+
   const onActive = (key) => {
     setKeyActive(key)
     console.log(key);
@@ -134,13 +136,11 @@ const MyMenu = () => {
               <div className="cart">
                 {
                   isAffix &&
-                  <Link to="/cart">
                     <i className="fab fa-opencart">
                       {
-                        myUser && (<span>{myUser.cart ? myUser.cart.length : 0}</span>)
+                        //myUser && (<span>{myUser.cart.length}</span>)
                       }
                     </i>
-                  </Link>
                 }
               </div>
             </div>

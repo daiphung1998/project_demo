@@ -11,7 +11,7 @@ const openNotification = (item) => {
   notification.open({
     message: '',
     description:<span>Bạn đã thêm thành công một sản phẩm <b>{item.name}</b> vào giỏ hàng</span>,
-    icon: <i class="fab fa-optin-monster" style={{fontSize: "50px", color: '#fe9705'}}></i>,
+    icon: <i className="fab fa-optin-monster" style={{fontSize: "50px", color: '#fe9705'}}></i>,
   });
 };
 
@@ -41,7 +41,7 @@ const CardItem = ({item}) => {
               <span className="item__card--priceSale">{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
             )
           }
-          <span className="item__card--price">{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
+          <span className="item__card--price">{(item.price - (item.price * item.sale / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
         </div>
         <Link to={`/products/${item.id}`}>
           <button className="item__card--seeMore">Xem thêm</button>

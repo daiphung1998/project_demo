@@ -25,6 +25,12 @@
     .price {
       font-weight: 700;
       color: #fe9705;
+      &__sale {
+        font-size: 26px;
+        text-decoration: line-through;
+        margin-right: 15px;
+        color: #ccc;
+      }
     }
     .nutrition {
       width: 100%;

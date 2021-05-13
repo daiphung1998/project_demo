@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
-import {Link, Redirect } from "react-router-dom"
+import { Form, Input, Button } from 'antd';
+import {Link , useHistory } from "react-router-dom"
 import UserApi from '../../api/userApi'
 import './style.scss';
 
@@ -12,8 +12,8 @@ const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 16 },
 };
-const Login = () => {
-
+const Login = ({}) => {
+  const history = useHistory();
   const [listUser, setListUser] = useState({})
 
   const fetchUser = async () => {
@@ -29,25 +29,27 @@ const Login = () => {
 
     const user = listUser.filter(item => (item.userName === values.username && item.password === values.password))
     if (user.length > 0) {
-      console.log("áasasas");
-      <Redirect to="/"/>
+      const passwordBase = btoa(user[0].id)
+      localStorage.setItem('userID', passwordBase);
+      history.push('/')
     } else {
       alert("sai tài khoản mật khẩu")
     }
-    console.log('Success:', values);
+    //console.log('Success:', values);
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    //console.log('Failed:', errorInfo);
   };
 
   const onFinishPasswordRetrieval = (values) => {
-    console.log('Success:', values);
+    //console.log('Success:', values);
   };
 
   const onFinishFailedPasswordRetrieval = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
   };
+
   return (
     <div className="login">
       <div className="row">
@@ -74,10 +76,6 @@ const Login = () => {
               rules={[{ required: true, message: 'Please input your password!' }]}
             >
               <Input.Password />
-            </Form.Item>
-
-            <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <Form.Item {...tailLayout}>

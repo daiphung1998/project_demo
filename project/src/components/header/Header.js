@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import './style.scss'
-import {Link} from "react-router-dom"
-import { useSelector } from 'react-redux'
+import { Link, useHistory } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'antd';
-import userApi from '../../api/userApi'
-
+import { getUser as getUserAction }  from '../../redux/actions/userAction'
 
 const Header = () => {
+  const history = useHistory();
+  const dispatch = useDispatch()
   const myStore = useSelector(store => store.userReducer.user)
-  const [myUser, setMyUser] = useState(myStore)
   const [keyActive, setKeyActive] = useState('')
-
-  useEffect(() => {
-    fetchUser()
-  }, [myStore])
-
-  const fetchUser = async () => {
-    const response = await userApi.getUser()
-    setMyUser(response)
-  }
+  console.log(myStore.cart.length);
 
   const onActive = (key) => {
     setKeyActive(key)
-    console.log(key);
+  }
+
+  const logout = () => {
+    // const user = {
+    //   cart: [],
+    // }
+    // localStorage.removeItem('userID')
+    // dispatch(getUserAction(user))
+    // history.push('/')
+    // setKeyActive('')
   }
   return (
     <div className="header">
@@ -31,10 +32,10 @@ const Header = () => {
           <Col span={5} offset={1} className="login">
             {
               myStore && (
-                myUser.id ? (
+                myStore.id ? (
                   <div className="login__imgUser">
                     {
-                      myUser.img ? <img src={myUser.img} alt="abc"/> : <i className="fas fa-user" />
+                      myStore.img ? <img src={myStore.img} alt="abc"/> : <i className="fas fa-user" />
                     }
                     <div className="login__listchose">
                       <ul>
@@ -42,19 +43,19 @@ const Header = () => {
                           <li onClick={() => onActive(1)}
                             style={{backgroundColor: keyActive === 1 ? '#ccc' : ''}}
                           >
-                            <i className="fas fa-user-tie"> thông tin cá nhân</i>
+                            <i className="fas fa-user-tie"/>thông tin cá nhân
                           </li>
                         </Link>
 
                         <Link to='/login'>
                           <li onClick={() => onActive(2)} style={{backgroundColor: keyActive === 2 ? '#ccc' : ''}}>
-                            đơn hàng
+                            <i className="fas fa-cart-plus"/>đơn hàng
                           </li>
                         </Link>
 
-                        <Link to='/login'>
-                          <li onClick={() => onActive(3)} style={{backgroundColor: keyActive === 3 ? '#ccc' : ''}}>
-                            <i className="fas fa-sign-out-alt"> logout</i>
+                        <Link to='#'>
+                          <li onClick={() => logout()}>
+                            <i className="fas fa-sign-out-alt"/>logout
                           </li>
                         </Link>
                       </ul>
@@ -71,7 +72,7 @@ const Header = () => {
             <Link to="/cart">
               <i className="fab fa-opencart">
                 {
-                  myUser && (<span>{myUser.cart ? myUser.cart.length : 0}</span>)
+                  myStore.id && (<span>{myStore.cart.length}</span>)
                 }
               </i>
             </Link>

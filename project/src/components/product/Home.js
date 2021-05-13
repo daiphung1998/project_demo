@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './home.scss'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Slide from '../Slide/Slide'
 import GroupProduct from './groupProduct/index';
+import UserApi from '../../api/userApi'
+import {getUser as getUserAction} from '../../redux/actions/userAction'
 
 const Home = () => {
   const products = useSelector(store => store.productReducer)
+  const dispatch = useDispatch()
+  const fetchUserById = async () => {
+    const baseId =  localStorage.getItem('userID')
+    const id = atob(baseId)
+    const response = await UserApi.getUserById(id)
+    dispatch(getUserAction(response))
 
+    console.log(response);
+  }
+
+  useEffect(() => {
+    fetchUserById()
+  }, [])
   return (
     <div className="product">
       <div className="row">

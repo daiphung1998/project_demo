@@ -44,7 +44,7 @@
 
         left: -45px;
         z-index: 50;
-        margin-top: 5px;
+        margin-top: 10px;
 
         ul {
           border-radius: 15px;
@@ -58,7 +58,10 @@
             padding: 0px 10px;
             transition: all .3s ease-in-out;
             position: relative;
-
+            i {
+              text-align: center;
+              margin-right: 5px;
+            }
             &:hover {
               background-color: #f1f1f1;
             }
@@ -109,7 +112,7 @@
           font-size: 20px;
           border-radius: 50px;
           top: -20%;
-          right: -30%;
+          left: 90%;
         }
       }
     }

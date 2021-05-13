@@ -10,16 +10,12 @@ import {
   DELETE_LIST_ITEM_CART,
   PAY_CART,
   ADD_CART_BY_PROFILE,
-  DECREMENT_COUNT_PAY_BY_CART,
   PAY_CART_NO_USER
 } from '../actionType'
 
 const initialState = {
   user: {
-    id: '',
-    img : '',
     cart: [],
-    oder: [],
   }
 }
 
@@ -37,7 +33,7 @@ const useReducer  = (state = initialState, action) => {
     }
     // gộp các mặt hàng khi chưa đăng nhập và sau khi đăng nhập có trước ở tài khoản
     // lặp cart ko có user xem có chùng với sản phẩm nào trong tài khoản
-    // ko thì cộng 2 count lại còn không có thì thêm mới cart
+    // có thì cộng 2 count lại còn không có thì thêm mới cart
 
     case ADD_CART: {
       let cartAction = user.cart
@@ -131,8 +127,6 @@ const useReducer  = (state = initialState, action) => {
           return userApi.addCart(user.id, newUser)
         }
     }
-
-
 
     case INCREMENT_PROJECT:{
       const index = cart.findIndex(item => item.id === action.payload)
@@ -246,21 +240,6 @@ const useReducer  = (state = initialState, action) => {
         })
       })
       user.profile = action.payload.profile
-      return {
-        ...state,
-        user: user
-      }
-    }
-
-    case DECREMENT_COUNT_PAY_BY_CART: {
-      action.payload.forEach(item => {
-        cart.forEach(elem => {
-          if (item === elem.id && elem.count !== 0) {
-            user.cart = user.cart.filter(i => i.id !== item)
-
-          }
-        })
-      })
       return {
         ...state,
         user: user
