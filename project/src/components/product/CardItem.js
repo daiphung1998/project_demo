@@ -2,10 +2,9 @@ import React from 'react'
 import { Card, notification } from 'antd'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addCart as addCartAction, getUser} from '../../redux/actions/userAction'
-
-//import userApi from '../../api/userApi'
-// import { decrementCountPay as decrementCountPayAction } from '../../redux/actions/products'
+import { addCart as addCartAction,
+  // addCartNoUser as addCartNoUserAction
+ } from '../../redux/actions/userAction'
 
 const openNotification = (item) => {
   notification.open({
@@ -18,12 +17,30 @@ const openNotification = (item) => {
 const CardItem = ({item}) => {
   const dispatch = useDispatch()
   const addToCart = async () => {
-    await dispatch(addCartAction(item))
-    setTimeout(() => {
-      openNotification(item)
-    }, 500);
-    // dispatch(decrementCountPayAction(item))
+    const id = localStorage.getItem('userID')
+    if(id) {
+      await dispatch(addCartAction(item))
+      setTimeout(() => {
+        openNotification(item)
+      }, 300);
+
+    } else {
+      const cartLocal = localStorage.getItem('cart')
+      if(cartLocal) {
+        console.log('add localStorage');
+      } else {
+        const cartLocal = localStorage.getItem('cart')
+        const newData = [
+          ...cartLocal,
+
+        ]
+        localStorage.setItem('cart')
+      }
+    }
+
   }
+
+
   return (
     <>
       <Card
@@ -50,7 +67,8 @@ const CardItem = ({item}) => {
           <button
             className={item.countPay > 0 ? "item__card--buy" : "item__card--disabledBuy"}
             disabled = {item.countPay > 0 ? false : true}
-            onClick={addToCart} >Mua Ngay</button>
+            onClick={addToCart}
+          >Mua Ngay</button>
         </Link>
       </Card>
     </>

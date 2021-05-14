@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './style.scss'
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,20 +10,19 @@ const Header = () => {
   const dispatch = useDispatch()
   const myStore = useSelector(store => store.userReducer.user)
   const [keyActive, setKeyActive] = useState('')
-  console.log(myStore.cart.length);
 
   const onActive = (key) => {
     setKeyActive(key)
   }
 
   const logout = () => {
-    // const user = {
-    //   cart: [],
-    // }
-    // localStorage.removeItem('userID')
-    // dispatch(getUserAction(user))
-    // history.push('/')
-    // setKeyActive('')
+    const user = {
+      cart: [],
+    }
+    localStorage.removeItem('userID')
+    dispatch(getUserAction(user))
+    history.push('/')
+    setKeyActive('')
   }
   return (
     <div className="header">
@@ -72,7 +71,7 @@ const Header = () => {
             <Link to="/cart">
               <i className="fab fa-opencart">
                 {
-                  myStore.id && (<span>{myStore.cart.length}</span>)
+                  myStore && (<span>{myStore.cart.length > 50 ? '50+' : myStore.cart.length}</span>)
                 }
               </i>
             </Link>

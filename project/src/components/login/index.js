@@ -12,7 +12,7 @@ const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 16 },
 };
-const Login = ({}) => {
+const Login = () => {
   const history = useHistory();
   const [listUser, setListUser] = useState({})
 

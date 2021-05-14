@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Pagination } from 'antd'
 import SearchProduct from './search/SearchProduct'
 import productApi from '../../api/productApi'
 import Sort from './sort/Sort'
 import './products.scss'
-import CardItem from './CardItem'
 import { Link } from 'react-router-dom'
-import JwPagination from 'jw-react-pagination';
 import MyPagination from './MyPagination'
 
 const Products = ({typeID}) => {
   const [products, setProducts] = useState([])
   const [listSort, setListSort] = useState([])
-  const [current, setCurrent] = useState(1)
-  const [pageSize, setPageSize] = useState(2)
-  const [listProductPage, setListProductPage] = useState([])
 
 
   const fetchProducts = async () => {
@@ -39,7 +33,7 @@ const Products = ({typeID}) => {
 
   }
 
-  useEffect( async () => {
+  useEffect(() => {
     fetchProducts()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

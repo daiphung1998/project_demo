@@ -11,15 +11,16 @@ const Home = () => {
   const dispatch = useDispatch()
   const fetchUserById = async () => {
     const baseId =  localStorage.getItem('userID')
-    const id = atob(baseId)
-    const response = await UserApi.getUserById(id)
-    dispatch(getUserAction(response))
-
-    console.log(response);
+    if(baseId) {
+      const id = atob(baseId)
+      const response = await UserApi.getUserById(id)
+      dispatch(getUserAction(response))
+    }
   }
 
   useEffect(() => {
     fetchUserById()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className="product">
