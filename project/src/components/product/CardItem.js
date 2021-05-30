@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { addCart as addCartAction,
   // addCartNoUser as addCartNoUserAction
  } from '../../redux/actions/userAction'
+ import './CartItem.scss'
 
 const openNotification = (item) => {
   notification.open({
@@ -29,12 +30,13 @@ const CardItem = ({item}) => {
       if(cartLocal) {
         console.log('add localStorage');
       } else {
-        const cartLocal = localStorage.getItem('cart')
-        const newData = [
-          ...cartLocal,
+        // const cartLocal = localStorage.getItem('cart')
+        // const newData = [
+        //   ...cartLocal,
 
-        ]
-        localStorage.setItem('cart')
+        // ]
+        // localStorage.setItem('cart')
+        console.log('new add localStorage');
       }
     }
 

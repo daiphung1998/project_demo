@@ -200,19 +200,13 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case DELETE_LIST_ITEM_CART: {
-      let newCart = [...user.cart]
       action.payload.forEach(elem => {
-        newCart = newCart.filter(item => item.id !== elem)
+        user.cart = user.cart.filter(item => item.id !== elem)
       });
-
-      const newUser = {
-        ...state,
-        cart: newCart
-      }
-      userApi.addCart(user.id, newUser)
+      userApi.addCart(user.id, user)
       return {
         ...state,
-        user: newUser
+        user: user
       }
     }
 

@@ -25,17 +25,13 @@ const Cart = () => {
 
   const [form] = Form.useForm();
 
-  //const typingTimeoutRef = useRef(null);
-
   const user = useSelector(store => store.userReducer.user)
   //const listProduct = useSelector(store => store.productReducer)
   const dataProducts =  useSelector(store => store.userReducer.user.cart)
-
   const [products, setProducts] = useState(dataProducts)
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [loading, setLoading] = useState(false)
-  //const [number, setNumber] = useState(1)
   const [visible, setVisible] = useState(false)
   const [totalMoney, setTotalMoney] = useState(0)
 
@@ -177,8 +173,10 @@ const Cart = () => {
 
   const fetchApi = async () => {
     try {
-      const response = await userApi.getUser()
-      setProducts(response.cart)
+      if(user.id) {
+        const response = await userApi.getUserById(user.id)
+        setProducts(response.cart)
+      }
     } catch (error) {
       console.log(error);
     }
@@ -198,9 +196,7 @@ const Cart = () => {
     //   }
     //   setNumber(a)
     // }
-
     const [...newData] = products
-
      const abc =   newData.map(item => {
       if (item.id === Number(id)) {
         return {
@@ -208,21 +204,15 @@ const Cart = () => {
           count: Number(value)
         }
       }
-
       return item
     })
-
     // let price = 0
     // selectedRowKeys.forEach(item => {
     //   const index = dataProducts.findIndex(elem => elem.id === item)
     //   price = price + (dataProducts[index].count * dataProducts[index].price)
     // })
     // setTotalMoney(price)
-
-
     setProducts(abc)
-
-
     const newNumber = {
       value: value,
       id: Number(id)
@@ -254,7 +244,6 @@ const Cart = () => {
 
   const deleteItem = (id) => {
     dispatch(deleteItemCartAction(id))
-
   }
 
   const deleteListItem = () => {
@@ -265,10 +254,10 @@ const Cart = () => {
     console.log(selectedRowKeys);
     setLoading(true)
     dispatch(deleteListItemCartAction(selectedRowKeys))
-    setTimeout(() => {
+    // setTimeout(() => {
       setSelectedRowKeys([])
-      setLoading(false)
-    }, 500);
+    //   setLoading(false)
+    // }, 500);
   };
 
   //pay cart no user

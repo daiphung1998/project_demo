@@ -2,68 +2,6 @@
   .sort {
     text-align: right;
   }
-  .item {
-    text-align: center;
-    margin-top: 20px;
-    img {
-      width: 90%;
-      aspect-ratio: 1/1;
-      margin: auto;
-      margin-top: 15px;
-      transition: all 0.5s ease;
-    }
-    &:hover img {
-      transform: scale(1.1);
-    }
-    &__card {
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-      &__sale {
-        position: absolute;
-        padding: 1px 18px;
-        top: -1px;
-        left: 50%;
-        font-size: 18px;
-        color: #fff;
-        font-weight: 700;
-        transform: translate(-50%, 0%);
-        border-radius: 0px 0px 5px 5px;
-        background-color: #fe9705;
-      }
-      button {
-        width: 75px;
-        border: none;
-        border-radius: 5px;
-        font-weight: 500;
-        height: 30px;
-        transition: all 0.3s ease;
-        &:nth-child(1) {
-          margin-right: 5px;
-        }
-      }
-      &--seeMore {
-        background-color: #80bb35;
-        color: #fff;
-        cursor: pointer;
-        &:hover {
-          background-color: #fe9705;
-        }
-      }
-      &--buy {
-        background-color: #80bb35;
-        color: #fff;
-        cursor: pointer;
-        &:hover {
-          background-color: #fe9705;
-        }
-      }
-      &--disabledBuy {
-        background-color: #ccc;
-        color: #fff;
-      }
-    }
-  }
 }
 
 @media only screen and (max-width: 739px) {

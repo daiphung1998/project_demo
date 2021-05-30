@@ -4,7 +4,7 @@ import MenuItem from './MenuItem'
 import { useSelector } from 'react-redux'
 import Search from './search/Search'
 import { Affix } from 'antd';
-// import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -113,11 +113,13 @@ const MyMenu = () => {
               <div className="cart">
                 {
                   isAffix &&
+                  <Link to="/cart">
                     <i className="fab fa-opencart">
                       {
                         myUser && (<span>{myUser.cart.length > 50 ? '50+' : myUser.cart.length}</span>)
                       }
                     </i>
+                  </Link>
                 }
               </div>
             </div>
