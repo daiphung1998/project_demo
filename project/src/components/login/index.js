@@ -92,7 +92,7 @@ const Login = () => {
         </div>
 
         <div className="col-6 login__right">
-          <p>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.</p>
+          <p>Bạn quên mật khẩu?</p>
           <Form
             name="password retrieval"
             initialValues={{ remember: true }}
@@ -100,7 +100,7 @@ const Login = () => {
             onFinishFailed={onFinishFailedPasswordRetrieval}
           >
             <Form.Item
-              label="UsernameRetrieval"
+              label="Username"
               name="usernameRetrieval"
               rules={[{ required: true, message: 'Please input your username!' }]}
             >

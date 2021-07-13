@@ -86,14 +86,14 @@ const ProfileProduct = () => {
       number: number
     }
     await dispatch(addCartByProfileAction(data))
-    try {
-      const response = await userApi.getUser()
-      setTimeout(() => {
-        dispatch(getUser(response))
-      }, 500);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const response = await userApi.getUser()
+    //   setTimeout(() => {
+    //     dispatch(getUser(response))
+    //   }, 500);
+    // } catch (error) {
+    //   console.log(error);
+    // }
     // dispatch(decrementCountPayProfile(data))
     setNumber(1)
     openNotification(product[0])
@@ -147,18 +147,23 @@ const ProfileProduct = () => {
             </div>
             <div className="col-lg-9 profile">
               <div className="row">
+
                 <div className="col-md-7">
                   <img src={product[0].img} alt="img"/>
                 </div>
+
                 <div className="col-md-5 profile__content">
+
                   <h2 className="title">{product[0].name}</h2>
+
                   <p className="status">Trạng Thái:
                     { product[0].countPay > 0 ? (
                       <span className="status--stocking"> <i className="fas fa-check"></i> Còn hàng</span>
                     ) : (
                       <span className="status--OutOfStock"> <i className="fas fa-times"></i> Hết hàng</span>
                     )}
-                    </p>
+                  </p>
+
                   <h2 className="price">
                     {
                       product[0].sale > 0 && (
@@ -166,17 +171,21 @@ const ProfileProduct = () => {
                       )
                     }
                     {(product[0].price - (product[0].price * product[0].sale / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                    VND</h2>
+                  VND</h2>
+
                   <div className="nutrition">
                     giá trị dinh dưỡng
                   </div>
+
                   <div className="profile__addCart">
                     <label>Số lượng: </label>
+
                     <div className="addNumber">
                       <button className="minus" onClick={decrement}>-</button>
                       <input type="text" value={number} onChange={getNumberInput} />
                       <button className="plus" onClick={increment}>+</button>
                     </div>
+
                     <button className={product[0].countPay > 0 ? "buy" : "disabledBuy"} onClick={buyProduct} disabled = {product[0].countPay > 0 ? false : true}>Mua hàng</button>
 
                   </div>

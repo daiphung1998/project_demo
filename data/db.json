@@ -226,36 +226,33 @@
       "password": "123",
       "cart": [
         {
-          "id": 5,
-          "name": "Hành lá",
-          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
-          "price": 50000,
-          "countPay": 100,
-          "count": 1
-        },
-        {
-          "id": 118,
-          "name": "Táo đỏ Mỹ",
-          "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
-          "price": 125000,
-          "countPay": 100,
-          "count": 2
-        },
-        {
           "id": 2,
           "name": "Nấm hương khô",
           "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
           "price": 25000,
-          "countPay": 100,
-          "count": 4
+          "count": 7
         },
         {
           "id": 3,
           "name": "Nấm đùi gà",
           "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
           "price": 150000,
+          "count": 6
+        },
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
           "countPay": 100,
-          "count": 2
+          "count": 4
+        },
+        {
+          "id": 118,
+          "name": "Táo đỏ Mỹ",
+          "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
+          "price": 125000,
+          "count": 6
         }
       ],
       "oder": [],
@@ -275,29 +272,11 @@
       "oder": [],
       "userName": "phong",
       "gender": "nam",
-      "email": "âsasd.hd@gmail.com",
+      "email": "phong@gmail.com",
       "address": "ádsadsadsad Hà Nội",
       "phone": "0933103536",
       "dateCreate": "2013-02-06T10:35:24-08:00",
-      "dateUpdate": "2013-02-05T10:35:24-08:00"
-    },
-    {
-      "id": "1",
-      "name": "Phạm Ngọc Thảo",
-      "email": "daiphung.hd@gmail.com",
-      "userName": "daiphung",
-      "password": "123",
-      "cart": [],
-      "oder": [],
-      "phone": "0963310336",
-      "address": [
-        "haiduong",
-        "kinhmon",
-        "anphu"
-      ],
-      "gender": "0",
-      "dateUpdate": "2021-04-29T14:30:46+07:00",
-      "dateCreate": "2021-04-29T14:30:46+07:00"
+      "dateUpdate": "2021-06-15T19:38:32+07:00"
     }
   ]
 }

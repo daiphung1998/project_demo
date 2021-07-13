@@ -38,7 +38,10 @@ const Cart = () => {
 
 
   useEffect(() => {
-    fetchApi()
+    if(user.id) {
+      fetchApi()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[user])
 
   const columns = [
@@ -173,10 +176,8 @@ const Cart = () => {
 
   const fetchApi = async () => {
     try {
-      if(user.id) {
-        const response = await userApi.getUserById(user.id)
-        setProducts(response.cart)
-      }
+      const response = await userApi.getUserById(user.id)
+      setProducts(response.cart)
     } catch (error) {
       console.log(error);
     }

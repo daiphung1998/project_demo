@@ -8,7 +8,8 @@ import { GET_USERS,
   PAY_CART,
   ADD_CART_BY_PROFILE,
   DECREMENT_COUNT_PAY_BY_CART,
-  PAY_CART_NO_USER
+  PAY_CART_NO_USER,
+  ADD_CART_NO_USER
 } from '../actionType';
 
 export const getUser = (payload) => {
@@ -24,6 +25,8 @@ export const addCart = (payload) => {
     payload
   }
 }
+
+
 
 export const incrementProject = (payload) => {
   return {
@@ -88,6 +91,9 @@ export const payCartNoUser = (payload) => {
   }
 }
 
-// export default addCartNoUser = () => {
-
-// }
+export const addCartNoUser = (payload) => {
+  return {
+    type : ADD_CART_NO_USER,
+    payload
+  }
+}

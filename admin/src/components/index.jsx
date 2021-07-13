@@ -33,6 +33,9 @@ const Body = () => {
             <Menu.Item key="user" icon={<UserOutlined />}>
               Users
             </Menu.Item>
+            <Menu.Item key="user" icon={<UserOutlined />}>
+              Orders
+            </Menu.Item>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Products">
               <Menu.Item key="rau">Rau</Menu.Item>
               <Menu.Item key="cu">Củ</Menu.Item>

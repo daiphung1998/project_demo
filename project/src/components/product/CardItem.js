@@ -3,7 +3,7 @@ import { Card, notification } from 'antd'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addCart as addCartAction,
-  // addCartNoUser as addCartNoUserAction
+  addCartNoUser as addCartNoUserAction
  } from '../../redux/actions/userAction'
  import './CartItem.scss'
 
@@ -26,18 +26,7 @@ const CardItem = ({item}) => {
       }, 300);
 
     } else {
-      const cartLocal = localStorage.getItem('cart')
-      if(cartLocal) {
-        console.log('add localStorage');
-      } else {
-        // const cartLocal = localStorage.getItem('cart')
-        // const newData = [
-        //   ...cartLocal,
-
-        // ]
-        // localStorage.setItem('cart')
-        console.log('new add localStorage');
-      }
+      dispatch(addCartNoUserAction(item))
     }
 
   }

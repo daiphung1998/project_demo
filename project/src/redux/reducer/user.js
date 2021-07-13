@@ -10,7 +10,8 @@ import {
   DELETE_LIST_ITEM_CART,
   PAY_CART,
   ADD_CART_BY_PROFILE,
-  PAY_CART_NO_USER
+  PAY_CART_NO_USER,
+  ADD_CART_NO_USER
 } from '../actionType'
 
 const initialState = {
@@ -84,7 +85,6 @@ const useReducer  = (state = initialState, action) => {
           ...user,
           cart: cartAction
         }
-
         userApi.addCart(user.id, newUser)
       }
       return {
@@ -110,7 +110,7 @@ const useReducer  = (state = initialState, action) => {
             ...user,
             cart: cartAction
           }
-          return userApi.addCart(user.id, newUser)
+          userApi.addCart(user.id, newUser)
         } else {
           newData = {
             id: action.payload.product.id,
@@ -124,7 +124,11 @@ const useReducer  = (state = initialState, action) => {
             ...user,
             cart: cartAction
           }
-          return userApi.addCart(user.id, newUser)
+          userApi.addCart(user.id, newUser)
+        }
+        return {
+          ...state,
+          user: newUser
         }
     }
 
@@ -226,18 +230,41 @@ const useReducer  = (state = initialState, action) => {
 
     case PAY_CART_NO_USER: {
       console.log(action.payload);
-      action.payload.listId.forEach(item => {
-        cart.forEach(elem => {
-          if (item === elem.id && elem.count !== 0) {
-            oder.push(elem)
-          }
-        })
-      })
-      user.profile = action.payload.profile
-      return {
-        ...state,
-        user: user
+      // action.payload.listId.forEach(item => {
+      //   cart.forEach(elem => {
+      //     if (item === elem.id && elem.count !== 0) {
+      //       oder.push(elem)
+      //     }
+      //   })
+      // })
+      // user.profile = action.payload.profile
+      // return {
+      //   ...state,
+      //   user: user
+      // }
+      return state
+    }
+
+    case ADD_CART_NO_USER: {
+      const cartLocal = localStorage.getItem('cart')
+      if(cartLocal) {
+        console.log('add localStorage', action.payload);
+      } else {
+        const cart = []
+        const newData = {
+          id: action.payload.id,
+          name: action.payload.name,
+          img: action.payload.img,
+          price: action.payload.price,
+          countPay: action.payload.countPay,
+          count: 1,
+        }
+        cart.push(newData)
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart))
+        console.log('new add localStorage', action.payload);
       }
+      return state
     }
 
     default:

@@ -26,26 +26,29 @@
       border-radius: 0px 0px 5px 5px;
       background-color: #fe9705;
     }
-    &--priceSale {
-      font-size: 23px;
-      text-decoration: line-through;
-      margin-right: 15px;
-      color: #ccc;
-    }
-
-    &--price {
-      font-size: 30px;
-    }
 
     &__groupPrice {
       height: 100px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       span {
         font-weight: 600;
       }
     }
+
+    &--priceSale {
+      font-size: 20px;
+      text-decoration: line-through;
+      margin-right: 15px;
+      color: #ccc;
+    }
+
+    &--price {
+      font-size: 28px;
+    }
+
     &--seeMore {
       width: 75px;
       border: none;

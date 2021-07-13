@@ -12,9 +12,9 @@ import {
 import router from './router'
 import { useDispatch } from 'react-redux';
 import ProductApi from './api/productApi'
-//import UserApi from './api/userApi'
+import UserApi from './api/userApi'
 import {getProduct as getProductAction} from './redux/actions/products'
-//import {getUser as getUserAction} from './redux/actions/userAction';
+import {getUser as getUserAction} from './redux/actions/userAction';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ScrollToTop from './ScrollToTop';
@@ -34,9 +34,14 @@ const App = () => {
   const fetchProducts = async () => {
     try {
       const listProduct = await ProductApi.getAll()
-      // const user = await UserApi.getUser('')
       dispatch(getProductAction(listProduct))
-      //dispatch(getUserAction(user))
+      if(localStorage.getItem('userID')) {
+        const id = atob(localStorage.getItem('userID'))
+        const user = await UserApi.getUserById(id)
+        dispatch(getUserAction(user))
+      } else {
+        console.log(1);
+      }
     } catch (error) {
       console.log(error);
     }

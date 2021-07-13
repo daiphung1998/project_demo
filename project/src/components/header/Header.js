@@ -10,7 +10,6 @@ const Header = () => {
   const dispatch = useDispatch()
   const myStore = useSelector(store => store.userReducer.user)
   const [keyActive, setKeyActive] = useState('')
-
   const onActive = (key) => {
     setKeyActive(key)
   }
@@ -71,7 +70,7 @@ const Header = () => {
             <Link to="/cart">
               <i className="fab fa-opencart">
                 {
-                  myStore && (<span>{myStore.cart.length > 50 ? '50+' : myStore.cart.length}</span>)
+                  myStore && (<span>{myStore.cart.length}</span>)
                 }
               </i>
             </Link>
