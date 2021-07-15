@@ -7,9 +7,9 @@ import { GET_USERS,
   DELETE_LIST_ITEM_CART,
   PAY_CART,
   ADD_CART_BY_PROFILE,
-  DECREMENT_COUNT_PAY_BY_CART,
   PAY_CART_NO_USER,
-  ADD_CART_NO_USER
+  ADD_CART_NO_USER,
+
 } from '../actionType';
 
 export const getUser = (payload) => {
@@ -77,12 +77,6 @@ export const addCartByProfile = (payload) => {
   }
 }
 
-export const deleteItemPayCart = (payload) => {
-  return {
-    type: DECREMENT_COUNT_PAY_BY_CART,
-    payload
-  }
-}
 
 export const payCartNoUser = (payload) => {
   return {

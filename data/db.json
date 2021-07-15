@@ -27,6 +27,7 @@
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/hanh-kho.jpg?v=1539588166193",
       "typeID": "cu",
       "species": "kho",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -56,6 +57,7 @@
       "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
       "typeID": "nam",
       "species": "kho",
+      "quantityPurchased": 0,
       "sale": 3,
       "comments": [],
       "evaluates": [
@@ -69,12 +71,13 @@
     {
       "id": 3,
       "name": "Nấm đùi gà",
-      "countPay": 100,
+      "countPay": 89,
       "price": 150000,
       "sale": 0,
       "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
       "typeID": "nam",
       "species": "tuoi",
+      "quantityPurchased": 11,
       "comments": [],
       "evaluates": [
         {
@@ -93,6 +96,7 @@
       "img": "https://sieuthiandam.com/wp-content/uploads/2018/03/0001895-khoai-lang-600x600-600x600.jpg",
       "typeID": "cu",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -111,6 +115,7 @@
       "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
       "typeID": "rau",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -129,6 +134,7 @@
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -147,6 +153,7 @@
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -165,6 +172,7 @@
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -183,6 +191,7 @@
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
       "species": "tuoi",
+      "quantityPurchased": 0,
       "comments": [],
       "evaluates": [
         {
@@ -197,10 +206,6 @@
     {
       "id": "1",
       "img": "https://chupanhvn.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2016/01/25030855/thuc-pham-tuoi-song3-1.jpg"
-    },
-    {
-      "id": "2",
-      "img": "https://detoxgreen.vn/wp-content/uploads/2016/08/1-11.jpg"
     },
     {
       "id": "3",
@@ -224,37 +229,7 @@
       "id": "2",
       "name": "Phùng Thế Đại",
       "password": "123",
-      "cart": [
-        {
-          "id": 2,
-          "name": "Nấm hương khô",
-          "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
-          "price": 25000,
-          "count": 7
-        },
-        {
-          "id": 3,
-          "name": "Nấm đùi gà",
-          "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
-          "price": 150000,
-          "count": 6
-        },
-        {
-          "id": 5,
-          "name": "Hành lá",
-          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
-          "price": 50000,
-          "countPay": 100,
-          "count": 4
-        },
-        {
-          "id": 118,
-          "name": "Táo đỏ Mỹ",
-          "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
-          "price": 125000,
-          "count": 6
-        }
-      ],
+      "cart": [],
       "oder": [],
       "userName": "dai",
       "gender": "nam",

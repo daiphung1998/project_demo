@@ -18,6 +18,7 @@ const Header = () => {
     const user = {
       cart: [],
     }
+    //gán các giá trị cart vào user cart băng dispatch
     localStorage.removeItem('userID')
     dispatch(getUserAction(user))
     history.push('/')

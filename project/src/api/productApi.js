@@ -7,13 +7,18 @@ const productApi = {
   },
 
   getById: (id) => {
-    const url = `/products/?id=${id}`
+    const url = `/products/${id}`
     return axiosClient.get(url)
   },
 
   getSlide: () => {
     const url = '/slide'
     return axiosClient.get(url)
+  },
+
+  updateProduct: (id, data) => {
+    const url = `/products/${id}`
+    return axiosClient.put(url, data)
   }
 }
 

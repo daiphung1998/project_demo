@@ -10,7 +10,6 @@ import {
   numberInputProject as numberInputProjectAction,
   deleteListItemCart as deleteListItemCartAction,
   payCart as payCartAction,
-  deleteItemPayCart as deleteItemPayCartAction,
   payCartNoUser as payCartNoUserAction,
 } from '../../redux/actions/userAction'
 import {
@@ -278,7 +277,7 @@ const Cart = () => {
         profile: values
       }
       dispatch(payCartNoUserAction(ojb))
-      dispatch(deleteItemByPayCartAction(listPayCart))
+      //dispatch(deleteItemByPayCartAction(listPayCart))
       setSelectedRowKeys([])
       setTimeout(() => {
         deleteListItem()
@@ -298,12 +297,14 @@ const Cart = () => {
           }
         })
       })
+
       dispatch(payCartAction(selectedRowKeys))
+      // xoá số lượng sản phẩm
       dispatch(deleteItemByPayCartAction(listPayCart))
       setSelectedRowKeys([])
       setTotalMoney(0)
       setTimeout(() => {
-        dispatch(deleteItemPayCartAction(selectedRowKeys))
+        dispatch(deleteListItemCartAction(selectedRowKeys))
       }, 500)
     } else {
       setVisible(true)

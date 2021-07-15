@@ -1,4 +1,5 @@
-import userApi from '../../api/userApi'
+import userApi from '../../api/userApi';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   GET_USERS,
@@ -215,13 +216,24 @@ const useReducer  = (state = initialState, action) => {
     }
 
     case PAY_CART: {
+      const listProduct = []
+      let money = 0
       action.payload.forEach(item => {
         cart.forEach(elem => {
-          if (item === elem.id && elem.count !== 0) {
-            oder.push(elem)
+          if (item === elem.id ) {
+            listProduct.push(elem)
+            money = money + (elem.price * elem.count)
           }
         })
       })
+      const newOder = {
+        id: uuidv4(),
+        listProduct: listProduct,
+        money: money,
+        status: 0,
+      }
+      oder.push(newOder)
+      userApi.addCart(user.id, user)
       return {
         ...state,
         user: user
