@@ -9,7 +9,9 @@ import { GET_USERS,
   ADD_CART_BY_PROFILE,
   PAY_CART_NO_USER,
   ADD_CART_NO_USER,
-
+  ADD_ORDER,
+  ADD_CART_BY_PROFILE_NO_USER,
+  ADD_ORDER_NO_USER,
 } from '../actionType';
 
 export const getUser = (payload) => {
@@ -25,8 +27,6 @@ export const addCart = (payload) => {
     payload
   }
 }
-
-
 
 export const incrementProject = (payload) => {
   return {
@@ -77,7 +77,6 @@ export const addCartByProfile = (payload) => {
   }
 }
 
-
 export const payCartNoUser = (payload) => {
   return {
     type: PAY_CART_NO_USER,
@@ -88,6 +87,27 @@ export const payCartNoUser = (payload) => {
 export const addCartNoUser = (payload) => {
   return {
     type : ADD_CART_NO_USER,
+    payload
+  }
+}
+
+export const addCartByProfileNoUser = (payload) => {
+  return {
+    type : ADD_CART_BY_PROFILE_NO_USER,
+    payload
+  }
+}
+
+export const addOrder = (payload) => {
+  return {
+    type : ADD_ORDER,
+    payload
+  }
+}
+
+export const addOrderNoUser = (payload) => {
+  return {
+    type : ADD_ORDER_NO_USER,
     payload
   }
 }

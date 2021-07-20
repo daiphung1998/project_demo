@@ -65,7 +65,7 @@ const Header = () => {
             }
           </Col>
           <Col span={12} className="logo">
-            <p>Logo</p>
+            <img src="/logo2.png"/>
           </Col>
           <Col span={5} className="cart">
             <Link to="/cart">

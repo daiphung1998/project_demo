@@ -52,12 +52,12 @@
     {
       "id": 2,
       "name": "Nấm hương khô",
-      "countPay": 100,
+      "countPay": 98,
       "price": 25000,
       "img": "https://cf.shopee.vn/file/8a6e7c8c8157c38da6af529fdc7b5332",
       "typeID": "nam",
       "species": "kho",
-      "quantityPurchased": 0,
+      "quantityPurchased": 2,
       "sale": 3,
       "comments": [],
       "evaluates": [
@@ -71,13 +71,13 @@
     {
       "id": 3,
       "name": "Nấm đùi gà",
-      "countPay": 89,
+      "countPay": 88,
       "price": 150000,
       "sale": 0,
       "img": "https://organicfood.vn/image/cache/catalog/nam-dui-ga-han-quoc-king-oyster-500x500.jpg",
       "typeID": "nam",
       "species": "tuoi",
-      "quantityPurchased": 11,
+      "quantityPurchased": 12,
       "comments": [],
       "evaluates": [
         {
@@ -109,13 +109,13 @@
     {
       "id": 5,
       "name": "Hành lá",
-      "countPay": 100,
+      "countPay": 98,
       "price": 50000,
       "sale": 11,
       "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
       "typeID": "rau",
       "species": "tuoi",
-      "quantityPurchased": 0,
+      "quantityPurchased": 2,
       "comments": [],
       "evaluates": [
         {
@@ -130,11 +130,11 @@
       "name": "Táo xanh Mỹ",
       "price": 50000,
       "sale": 0,
-      "countPay": 100,
+      "countPay": 99,
       "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "quantityPurchased": 0,
+      "quantityPurchased": 1,
       "comments": [],
       "evaluates": [
         {
@@ -187,11 +187,11 @@
       "name": "Táo đỏ Mỹ",
       "price": 125000,
       "sale": 0,
-      "countPay": 100,
+      "countPay": 98,
       "img": "https://bizweb.dktcdn.net/thumb/1024x1024/100/325/688/products/tao-do-my-red-delicious-size-36-44.jpg",
       "typeID": "qua",
       "species": "tuoi",
-      "quantityPurchased": 0,
+      "quantityPurchased": 2,
       "comments": [],
       "evaluates": [
         {
@@ -229,8 +229,24 @@
       "id": "2",
       "name": "Phùng Thế Đại",
       "password": "123",
-      "cart": [],
-      "oder": [],
+      "cart": [
+        {
+          "id": 5,
+          "name": "Hành lá",
+          "img": "https://i2.wp.com/thucphamtantai.com/wp-content/uploads/2019/10/hanh-la.jpg",
+          "price": 50000,
+          "countPay": 98,
+          "count": 7
+        },
+        {
+          "id": 6,
+          "name": "Táo xanh Mỹ",
+          "img": "https://product.hstatic.net/1000282430/product/tao_xanh_my_grande.jpg",
+          "price": 50000,
+          "count": 4
+        }
+      ],
+      "order": [],
       "userName": "dai",
       "gender": "nam",
       "email": "daiphung.hd@gmail.com",
@@ -240,11 +256,25 @@
       "dateUpdate": "2015-02-04T10:35:24-08:00"
     },
     {
+      "id": "1",
+      "name": "Thảo",
+      "password": "thao",
+      "cart": [],
+      "order": [],
+      "userName": "thaopham",
+      "gender": "nu",
+      "email": "thao@gmail.com",
+      "address": "bãi rác",
+      "phone": "0867585510",
+      "dateCreate": "2013-02-06T10:35:24-08:00",
+      "dateUpdate": "2021-06-15T19:38:32+07:00"
+    },
+    {
       "id": "3",
       "name": "phong",
       "password": "phong",
       "cart": [],
-      "oder": [],
+      "order": [],
       "userName": "phong",
       "gender": "nam",
       "email": "phong@gmail.com",
@@ -253,5 +283,6 @@
       "dateCreate": "2013-02-06T10:35:24-08:00",
       "dateUpdate": "2021-06-15T19:38:32+07:00"
     }
-  ]
+  ],
+  "order": []
 }

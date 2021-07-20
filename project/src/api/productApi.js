@@ -19,7 +19,12 @@ const productApi = {
   updateProduct: (id, data) => {
     const url = `/products/${id}`
     return axiosClient.put(url, data)
-  }
+  },
+
+  // addComment: (id, data) => {
+  //   const url = `/products/${id}`
+  //   return axiosClient.put(url, data)
+  // }
 }
 
 export default productApi

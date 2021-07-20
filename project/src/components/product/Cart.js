@@ -11,6 +11,8 @@ import {
   deleteListItemCart as deleteListItemCartAction,
   payCart as payCartAction,
   payCartNoUser as payCartNoUserAction,
+  addOrder as addOrderAction,
+  addOrderNoUser as addOrderNoUserAction,
 } from '../../redux/actions/userAction'
 import {
   // incrementCountPayByCart as incrementCountPayByCartAction,
@@ -25,7 +27,6 @@ const Cart = () => {
   const [form] = Form.useForm();
 
   const user = useSelector(store => store.userReducer.user)
-  //const listProduct = useSelector(store => store.productReducer)
   const dataProducts =  useSelector(store => store.userReducer.user.cart)
   const [products, setProducts] = useState(dataProducts)
 
@@ -39,6 +40,8 @@ const Cart = () => {
   useEffect(() => {
     if(user.id) {
       fetchApi()
+    } else {
+      setProducts(dataProducts)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[user])
@@ -172,7 +175,6 @@ const Cart = () => {
     onChange: onSelectChange,
   };
 
-
   const fetchApi = async () => {
     try {
       const response = await userApi.getUserById(user.id)
@@ -181,7 +183,6 @@ const Cart = () => {
       console.log(error);
     }
   }
-
 
   const getNumberInput = (event) => {
     const { value, id } = event.target
@@ -262,7 +263,6 @@ const Cart = () => {
 
   //pay cart no user
   const onFinish = values => {
-    console.log(values);
     if (values.username !== undefined && values.phone !== undefined && values.email !== undefined && values.address !== undefined) {
       const listPayCart = []
       selectedRowKeys.forEach(item => {
@@ -277,11 +277,9 @@ const Cart = () => {
         profile: values
       }
       dispatch(payCartNoUserAction(ojb))
-      //dispatch(deleteItemByPayCartAction(listPayCart))
+      dispatch(addOrderNoUserAction(ojb))
+      dispatch(deleteItemByPayCartAction(listPayCart))
       setSelectedRowKeys([])
-      setTimeout(() => {
-        deleteListItem()
-      }, 500);
       onReset()
     }
   };
@@ -299,7 +297,7 @@ const Cart = () => {
       })
 
       dispatch(payCartAction(selectedRowKeys))
-      // xoá số lượng sản phẩm
+      dispatch(addOrderAction(selectedRowKeys))
       dispatch(deleteItemByPayCartAction(listPayCart))
       setSelectedRowKeys([])
       setTotalMoney(0)

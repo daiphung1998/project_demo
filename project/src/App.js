@@ -40,7 +40,11 @@ const App = () => {
         const user = await UserApi.getUserById(id)
         dispatch(getUserAction(user))
       } else {
-        console.log(1);
+        const cartLocal = JSON.parse(localStorage.getItem('cart'));
+        const user = {
+          cart: cartLocal
+        }
+        dispatch(getUserAction(user))
       }
     } catch (error) {
       console.log(error);

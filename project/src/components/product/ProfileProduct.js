@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import productApi from '../../api/productApi'
 import './ProfileProduct.scss'
-import {addCartByProfile as addCartByProfileAction, getUser} from '../../redux/actions/userAction'
 import {
-  // decrementCountPayProfile,
+  addCartByProfile as addCartByProfileAction,
+  addCartByProfileNoUser as addCartByProfileNoUserAction
+} from '../../redux/actions/userAction'
+import {
   setEvaluate as setEvaluateAction
 } from "./../../redux/actions/products";
 import { Tabs, Rate, Modal, Button, notification } from 'antd';
-import userApi from '../../api/userApi'
 
 const { TabPane } = Tabs;
 const openNotification = (item) => {
@@ -22,23 +23,23 @@ const openNotification = (item) => {
 
 const ProfileProduct = () => {
   const param = useParams()
+  const dispatch = useDispatch()
 
   const user = useSelector(store => store.userReducer.user)
-
   const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-
-  const dispatch = useDispatch()
 
   const [product, setProduct] = useState(null)
   const [number, setNumber] = useState(1)
 
   const [evaluate, setEvaluate] = useState(0)
   const[evaluateDefault, setEvaluateDefault] = useState(0)
+
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const fetchProduct = async () => {
     try {
       const response = await productApi.getById(param.id)
+      console.log(response);
       setProduct(response)
     } catch (error) {
       console.log(error);
@@ -51,8 +52,8 @@ const ProfileProduct = () => {
   }, [])
 
   const increment = () => {
-    if (number + 1 >=  product[0].countPay) {
-      setNumber(product[0].countPay)
+    if (number + 1 >=  product.countPay) {
+      setNumber(product.countPay)
     } else {
       setNumber(number + 1)
     }
@@ -73,8 +74,8 @@ const ProfileProduct = () => {
       setNumber(1)
       return
     }
-    if (value > product[0].countPay) {
-      setNumber(product[0].countPay)
+    if (value > product.countPay) {
+      setNumber(product.countPay)
     } else {
       setNumber(value)
     }
@@ -82,21 +83,15 @@ const ProfileProduct = () => {
 
   const buyProduct = async () => {
     const data = {
-      product: product[0],
+      product: product,
       number: number
     }
-    await dispatch(addCartByProfileAction(data))
-    // try {
-    //   const response = await userApi.getUser()
-    //   setTimeout(() => {
-    //     dispatch(getUser(response))
-    //   }, 500);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    // dispatch(decrementCountPayProfile(data))
+    if (user.id) {
+      await dispatch(addCartByProfileAction(data))
+    }
+    dispatch(addCartByProfileNoUserAction(data))
     setNumber(1)
-    openNotification(product[0])
+    openNotification(product)
   }
   const handleChange = (evaluate) => {
     setEvaluate(evaluate)
@@ -109,7 +104,7 @@ const ProfileProduct = () => {
   const handleOk = () => {
     setIsModalVisible(false);
     const value = {
-      id: product[0].id,
+      id: product.id,
       evaluate
     }
     dispatch(setEvaluateAction(value))
@@ -122,10 +117,10 @@ const ProfileProduct = () => {
   const getValueEvaluate = (key) => {
     let count = 0
     if (key === "3") {
-      product[0].evaluates.forEach((item, index) => {
+      product.evaluates.forEach((item, index) => {
         count = count + item.point
       });
-      const s = count / product[0].evaluates.length
+      const s = count / product.evaluates.length
       setEvaluateDefault(s)
     }
   }
@@ -149,15 +144,15 @@ const ProfileProduct = () => {
               <div className="row">
 
                 <div className="col-md-7">
-                  <img src={product[0].img} alt="img"/>
+                  <img src={product.img} alt="img"/>
                 </div>
 
                 <div className="col-md-5 profile__content">
 
-                  <h2 className="title">{product[0].name}</h2>
+                  <h2 className="title">{product.name}</h2>
 
                   <p className="status">Trạng Thái:
-                    { product[0].countPay > 0 ? (
+                    { product.countPay > 0 ? (
                       <span className="status--stocking"> <i className="fas fa-check"></i> Còn hàng</span>
                     ) : (
                       <span className="status--OutOfStock"> <i className="fas fa-times"></i> Hết hàng</span>
@@ -166,11 +161,11 @@ const ProfileProduct = () => {
 
                   <h2 className="price">
                     {
-                      product[0].sale > 0 && (
-                        <span className="price__sale"> {product[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
+                      product.sale > 0 && (
+                        <span className="price__sale"> {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} VND</span>
                       )
                     }
-                    {(product[0].price - (product[0].price * product[0].sale / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    {(product.price - (product.price * product.sale / 100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   VND</h2>
 
                   <div className="nutrition">
@@ -186,7 +181,7 @@ const ProfileProduct = () => {
                       <button className="plus" onClick={increment}>+</button>
                     </div>
 
-                    <button className={product[0].countPay > 0 ? "buy" : "disabledBuy"} onClick={buyProduct} disabled = {product[0].countPay > 0 ? false : true}>Mua hàng</button>
+                    <button className={product.countPay > 0 ? "buy" : "disabledBuy"} onClick={buyProduct} disabled = {product.countPay > 0 ? false : true}>Mua hàng</button>
 
                   </div>
                   <p>Địa chỉ: <span>aaaaa</span></p>
